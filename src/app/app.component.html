@@ -1,11 +1,1 @@
-<div>
-  <nav>
-    <ul>
-      <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['']">Home</a></li>
-      <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/profile']">My Profile</a></li>
-      <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/logout']">Logout</a></li>
-    </ul>
-  </nav>
-</div>
-
 <router-outlet></router-outlet>
