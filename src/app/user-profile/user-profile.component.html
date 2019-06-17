@@ -1,3 +1,5 @@
-<h1>Name: {{ user.name }}</h1>
-<h1>Email: {{ user.email }}</h1>
-<h1>Member since: {{ user.created_at }}</h1>
+<div *ngIf="user">
+  <h1>Name: {{ user.name }}</h1>
+  <h1>Email: {{ user.email }}</h1>
+  <h1>Member since: {{ user.created_at }}</h1>  
+</div>
