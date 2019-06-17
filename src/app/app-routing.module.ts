@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardGuard } from './dashboard.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { PropertyListComponent } from './properties/property-list/property-list.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [DashboardGuard]
+  },
+  {
+    path: 'properties',
+    component: PropertyListComponent,
     canActivate: [DashboardGuard]
   },
   {
