@@ -17,6 +17,7 @@ import { PropertyListComponent } from './properties/property-list/property-list.
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ClientListComponent } from './clients/client-list/client-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     PropertyListComponent,
     LoginLayoutComponent,
     DashboardLayoutComponent,
-    SidebarComponent
+    SidebarComponent,
+    ClientListComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,11 @@ export class ApiServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // Clients
+  getClients(){
+    return this.httpClient.get(this.API_URL + '/clients');
+  }
+
   // Properties
   getProperties(){
     return this.httpClient.get(this.API_URL + '/properties');
