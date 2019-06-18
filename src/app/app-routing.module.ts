@@ -10,6 +10,7 @@ import { PropertyListComponent } from './properties/property-list/property-list.
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { ClientListComponent } from './clients/client-list/client-list.component';
+import { ClientCreateComponent } from './clients/client-create/client-create.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
         canActivate: [DashboardGuard]
       },
       { path: 'clients', component: ClientListComponent, canActivate: [DashboardGuard]},
+      { path: 'clients/create', component: ClientCreateComponent, canActivate: [DashboardGuard]},
       {
         path: 'properties',
         component: PropertyListComponent,
