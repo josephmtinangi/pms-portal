@@ -19,6 +19,7 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { ClientCreateComponent } from './clients/client-create/client-create.component';
+import { PropertyCreateComponent } from './properties/property-create/property-create.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ClientCreateComponent } from './clients/client-create/client-create.com
     DashboardLayoutComponent,
     SidebarComponent,
     ClientListComponent,
-    ClientCreateComponent
+    ClientCreateComponent,
+    PropertyCreateComponent
   ],
   imports: [
     BrowserModule,

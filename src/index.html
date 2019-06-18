@@ -21,6 +21,8 @@
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="assets/css/skin-blue.min.css">
+  <!-- Pace style -->
+  <link rel="stylesheet" href="assets/css/pace.min.css">
 
   <link rel="stylesheet" href="assets/css/app.css">
 
@@ -45,12 +47,21 @@
   <script src="assets/js/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="assets/js/bootstrap.min.js"></script>
+  <!-- PACE -->
+  <script src="assets/js/pace.min.js"></script>
   <!-- DataTables -->
   <script src="assets/js/jquery.dataTables.min.js"></script>
   <script src="assets/js/dataTables.bootstrap.min.js"></script>
   <!-- AdminLTE App -->
   <script src="assets/js/adminlte.min.js"></script>
 
+  <!-- page script -->
+  <script type="text/javascript">
+    // To make Pace works on Ajax calls
+    $(document).ajaxStart(function () {
+      Pace.restart()
+    });
+  </script>  
   <script>
     $(function () {
       $('#datatable').DataTable({

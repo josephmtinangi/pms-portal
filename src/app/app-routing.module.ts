@@ -11,6 +11,7 @@ import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { ClientCreateComponent } from './clients/client-create/client-create.component';
+import { PropertyCreateComponent } from './properties/property-create/property-create.component';
 
 const routes: Routes = [
   {
@@ -41,11 +42,10 @@ const routes: Routes = [
       },
       { path: 'clients', component: ClientListComponent, canActivate: [DashboardGuard]},
       { path: 'clients/create', component: ClientCreateComponent, canActivate: [DashboardGuard]},
-      {
-        path: 'properties',
-        component: PropertyListComponent,
-        canActivate: [DashboardGuard]
-      },
+      
+      { path: 'properties', component: PropertyListComponent, canActivate: [DashboardGuard] },
+      { path: 'properties/create', component: PropertyCreateComponent, canActivate: [DashboardGuard]},
+
       {
         path: '',
         component: HomeComponent,
