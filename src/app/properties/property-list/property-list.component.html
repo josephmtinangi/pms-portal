@@ -12,12 +12,14 @@
             <th>Name</th>
             <th>Type</th>
             <th>Client</th>
+            <th>Location</th>
           </tr>
           <tr *ngFor="let property of properties">
             <td>{{ property.id }}</td>
             <td>{{ property.name }}</td>
             <td>{{ property.property_type.name }}</td>
             <td>{{ property.client.first_name }}</td>
+            <td>{{ property.village.name }}</td>
           </tr>
         </table>
       </div>

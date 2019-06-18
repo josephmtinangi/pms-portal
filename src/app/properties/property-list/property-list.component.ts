@@ -13,8 +13,8 @@ export class PropertyListComponent implements OnInit {
   constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
-    this.apiService.getProperties().subscribe((data: any) => {
-      this.properties = data.data;
+    this.apiService.getProperties().subscribe((res: any) => {
+      this.properties = res.data.data;
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -14,7 +14,11 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
   errorMessage: string = null;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router) {
+ 
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -23,10 +27,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.authService.isAuthenticated()){
-      console.log('is auth');
       this.router.navigate(['/']);
-    }else{
-      console.log('is not auth');
     }
   }
 
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.submitted = false;
-        this.errorMessage = error.error.message;
+        this.errorMessage = error;
       })
     }
   }

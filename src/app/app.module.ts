@@ -20,6 +20,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ClientListComponent } from './clients/client-list/client-list.component';
 import { ClientCreateComponent } from './clients/client-create/client-create.component';
 import { PropertyCreateComponent } from './properties/property-create/property-create.component';
+import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+import { CustomerCreateComponent } from './customers/customer-create/customer-create.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { PropertyCreateComponent } from './properties/property-create/property-c
     SidebarComponent,
     ClientListComponent,
     ClientCreateComponent,
-    PropertyCreateComponent
+    PropertyCreateComponent,
+    CustomerListComponent,
+    CustomerCreateComponent
   ],
   imports: [
     BrowserModule,
