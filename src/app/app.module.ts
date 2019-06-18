@@ -14,6 +14,8 @@ import { AuthInterceptorService } from './auth-interceptor.service';
 import { DashboardGuard } from './dashboard.guard';
 import { LogoutComponent } from './logout/logout.component';
 import { PropertyListComponent } from './properties/property-list/property-list.component';
+import { LoginLayoutComponent } from './login-layout/login-layout.component';
+import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { PropertyListComponent } from './properties/property-list/property-list.
     UsersComponent,
     UserProfileComponent,
     LogoutComponent,
-    PropertyListComponent
+    PropertyListComponent,
+    LoginLayoutComponent,
+    DashboardLayoutComponent
   ],
   imports: [
     BrowserModule,
