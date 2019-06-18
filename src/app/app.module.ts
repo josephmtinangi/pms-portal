@@ -16,6 +16,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { PropertyListComponent } from './properties/property-list/property-list.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
     LogoutComponent,
     PropertyListComponent,
     LoginLayoutComponent,
-    DashboardLayoutComponent
+    DashboardLayoutComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
