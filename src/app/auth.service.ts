@@ -40,11 +40,12 @@ export class AuthService {
       password: password
     };
 
-    this.httpClient.post(this.API_URL + '/auth/login', payload).subscribe((res: any) => {
-      localStorage.setItem(this.TOKEN_KEY, res.token);
-      localStorage.setItem(this.AUTHENTICATED_USER_KEY, JSON.stringify(res.user));
-      this.router.navigateByUrl('/');
-    });
+    return this.httpClient.post(this.API_URL + '/auth/login', payload);
+  }
+
+  store(res: any){
+    localStorage.setItem(this.TOKEN_KEY, res.token);
+    localStorage.setItem(this.AUTHENTICATED_USER_KEY, JSON.stringify(res.user));
   }
 
   getAccount(){

@@ -12,7 +12,7 @@ export class ClientCreateComponent implements OnInit {
 
   clientForm: FormGroup;
   client_types: Array<ClientType> = [];
-  submitted :boolean = false;
+  submitted: boolean = false;
   success: boolean = false;
   errorMessage: string = '';
 

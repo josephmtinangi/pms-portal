@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  submitted: boolean = false;
+  errorMessage: string = null;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.formBuilder.group({
@@ -29,9 +31,19 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
+    this.submitted = true;
+    this.errorMessage = null;
     if(this.loginForm.valid){
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe((res: any) => {
+        if(res.status == 200){
+          this.authService.store(res);
+          this.router.navigate(['/']);
+        }
+      },
+      error => {
+        this.submitted = false;
+        this.errorMessage = error.error.message;
+      })
     }
   }
 

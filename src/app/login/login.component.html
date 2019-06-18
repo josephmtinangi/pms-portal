@@ -1,3 +1,4 @@
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <div class="form-group has-feedback">
     <input type="email" formControlName="email" class="form-control" placeholder="Email">
@@ -9,8 +10,9 @@
   </div>
   <div class="row">
     <!-- /.col -->
-    <div class="col-xs-4">
-      <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+    <div class="col-xs-12">
+      <button type="submit" *ngIf="!submitted" class="btn btn-primary btn-block btn-flat">Sign In</button>
+      <button type="submit" *ngIf="submitted" class="btn btn-primary btn-block btn-flat"><i class="fa fa-spinner fa-spin"></i> Signing in...</button>
     </div>
     <!-- /.col -->
   </div>
