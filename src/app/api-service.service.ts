@@ -16,6 +16,16 @@ export class ApiServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // Dashboard
+  getDashboardData(){
+    return this.httpClient.get(this.API_URL + '/dashboard');
+  }
+
+  // Users
+  getUsers(){
+    return this.httpClient.get(this.API_URL + '/users');
+  }
+
   // Client Types
   getClientTypes(){
     return this.httpClient.get(this.API_URL + '/client-types');
