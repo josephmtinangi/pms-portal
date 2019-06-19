@@ -14,8 +14,8 @@ export class ClientListComponent implements OnInit {
   constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
-    this.apiService.getClients().subscribe((data: any) => {
-      this.clients = data.data;
+    this.apiService.getClients().subscribe((res: any) => {
+      this.clients = res.data.data;
     })
   }
 

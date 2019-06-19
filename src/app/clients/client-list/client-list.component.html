@@ -6,7 +6,7 @@
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-        <table class="table table-bordered">
+        <table *ngIf="clients.length > 0" class="table table-bordered">
           <tr>
             <th style="width: 10px">#</th>
             <th>Name</th>
