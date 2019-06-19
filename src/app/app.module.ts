@@ -22,6 +22,7 @@ import { ClientCreateComponent } from './clients/client-create/client-create.com
 import { PropertyCreateComponent } from './properties/property-create/property-create.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { CustomerCreateComponent } from './customers/customer-create/customer-create.component';
+import { CustomerDetailComponent } from './customers/customer-detail/customer-detail.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CustomerCreateComponent } from './customers/customer-create/customer-cr
     ClientCreateComponent,
     PropertyCreateComponent,
     CustomerListComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    CustomerDetailComponent
   ],
   imports: [
     BrowserModule,

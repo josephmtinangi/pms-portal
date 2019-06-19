@@ -16,6 +16,7 @@
               <th>TIN</th>
               <th>Postal Address</th>
               <th>Physical Address</th>
+              <th>Options</th>
             </tr>
             <tr *ngFor="let customer of customers">
               <td>{{ customer.id }}</td>
@@ -26,6 +27,9 @@
               <td>{{ customer.tin }}</td>
               <td>{{ customer.postal_address }}</td>
               <td>{{ customer.physical_address }}</td>
+              <td>
+                <a routerLink="/customers/{{customer.id}}"><i class="fa fa-eye"></i></a>
+              </td>
             </tr>
           </table>
         </div>

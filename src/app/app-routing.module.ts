@@ -15,6 +15,7 @@ import { PropertyCreateComponent } from './properties/property-create/property-c
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { CustomerCreateComponent } from './customers/customer-create/customer-create.component';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
+import { CustomerDetailComponent } from './customers/customer-detail/customer-detail.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,7 @@ const routes: Routes = [
 
       { path: 'customers', component: CustomerListComponent, canActivate: [DashboardGuard] },
       { path: 'customers/create', component: CustomerCreateComponent, canActivate: [DashboardGuard] },
+      { path: 'customers/:id', component: CustomerDetailComponent, canActivate: [DashboardGuard] },
 
       {
         path: '',

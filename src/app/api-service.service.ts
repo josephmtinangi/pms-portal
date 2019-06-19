@@ -66,6 +66,10 @@ export class ApiServiceService {
     return this.httpClient.get(this.API_URL + '/customers');
   }
 
+  getCustomer(id: number){
+    return this.httpClient.get(this.API_URL + '/customers/' + id);
+  }
+
   storeCustomer(customer: Customer) {
     return this.httpClient.post(this.API_URL + '/customers', customer);
   }
