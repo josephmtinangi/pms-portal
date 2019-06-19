@@ -9,7 +9,10 @@ import { Property } from './_models/property.model';
 })
 export class ApiServiceService {
 
+  // local
   API_URL = 'http://localhost:8000/api';
+  // testing
+  // API_URL = 'https://hidden-island-92023.herokuapp.com/api';
 
   constructor(private httpClient: HttpClient) { }
 

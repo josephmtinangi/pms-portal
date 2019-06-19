@@ -7,7 +7,11 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  // local
   API_URL = 'http://localhost:8000/api';
+  // testing
+  // API_URL = 'https://hidden-island-92023.herokuapp.com/api';
+
   TOKEN_KEY = 'auth_token';
   AUTHENTICATED_USER_KEY = 'current_user';
 
