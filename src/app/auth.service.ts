@@ -44,8 +44,8 @@ export class AuthService {
   }
 
   store(res: any){
-    localStorage.setItem(this.TOKEN_KEY, res.token);
-    localStorage.setItem(this.AUTHENTICATED_USER_KEY, JSON.stringify(res.user));
+    localStorage.setItem(this.TOKEN_KEY, res.data.token);
+    localStorage.setItem(this.AUTHENTICATED_USER_KEY, JSON.stringify(res.data.user));
   }
 
   getAccount(){
