@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-sm-8">
+      <div class="alert alert-success" *ngIf="success">Success</div>
+      <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <!-- Horizontal Form -->
+      <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">Lease</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal" [formGroup]="leaseForm" (ngSubmit)="store()">
+            <div class="box-body">    
+              <div class="form-group">
+                  <label for="customer_id" class="col-sm-2 control-label">Customer</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" formControlName="customer_id">
+                        <option value="" disabled>-Select-</option>
+                        <option *ngFor="let customer of customers" [ngValue]="customer.id">
+                          {{ customer.first_name }} {{ customer.middle_name }} {{ customer.last_name }}
+                        </option>
+                      </select>                  
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="property_id" class="col-sm-2 control-label">Property</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" formControlName="property_id">
+                        <option value="" disabled>-Select-</option>
+                        <option *ngFor="let property of properties" [ngValue]="property.id">
+                          {{ property.name }}
+                        </option>
+                      </select>                  
+                  </div>
+              </div>                           
+              <div class="form-group">
+                  <label for="roomsIds" class="col-sm-2 control-label">Rooms</label>
+                  <div class="col-sm-10">
+                    <input type="text" formControlName="roomsIds" class="form-control" id="roomsIds" placeholder="Write room ids here separated by comma">
+                  </div>
+              </div>                         
+              <div class="form-group">
+                  <label for="start_date" class="col-sm-2 control-label">From</label>
+                  <div class="col-sm-10">
+                    <input type="date" formControlName="start_date" class="form-control" id="start_date" placeholder="From">
+                  </div>
+              </div>   
+              <div class="form-group">
+                  <label for="end_date" class="col-sm-2 control-label">To</label>
+                  <div class="col-sm-10">
+                    <input type="date" formControlName="end_date" class="form-control" id="end_date" placeholder="To">
+                  </div>
+              </div>   
+              <div class="form-group">
+                  <label for="contract_duration" class="col-sm-2 control-label">Duration (Months)</label>
+                  <div class="col-sm-10">
+                    <input type="number" formControlName="contract_duration" class="form-control" id="contract_duration" placeholder="Duration (Months)">
+                  </div>
+              </div>   
+              <div class="form-group">
+                  <label for="rent_per_month" class="col-sm-2 control-label">Rent per month</label>
+                  <div class="col-sm-10">
+                    <input type="number" formControlName="rent_per_month" class="form-control" id="rent_per_month" placeholder="Rent per month">
+                  </div>
+              </div>   
+              <div class="form-group">
+                  <label for="payment_interval" class="col-sm-2 control-label">Payment interval (Months)</label>
+                  <div class="col-sm-10">
+                    <input type="number" formControlName="payment_interval" class="form-control" id="payment_interval" placeholder="Rent per month">
+                  </div>
+              </div>                                                         
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button type="submit" *ngIf="!submitted" class="btn btn-info pull-right">Submit</button>
+              <button type="submit" *ngIf="submitted" class="btn btn-info pull-right"><i class="fa fa-spinner fa-spin"></i> Sending...</button>
+            </div>
+            <!-- /.box-footer -->
+          </form>
+        </div>
+        <!-- /.box -->    
+    </div>
+  </div>

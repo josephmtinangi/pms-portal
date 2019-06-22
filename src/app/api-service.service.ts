@@ -44,27 +44,45 @@ export class ApiServiceService {
     return this.httpClient.post(this.API_URL + '/clients', client);
   }
 
-  // Properties
+  // Property types
   getPropertyTypes() {
     return this.httpClient.get(this.API_URL + '/property-types');
   }
 
+  // Properties
   getProperties(){
     return this.httpClient.get(this.API_URL + '/properties');
   }
+
+  getAllProperties(){
+    return this.httpClient.get(this.API_URL + '/properties/all');
+  }
+
+  getProperty(id: number){
+    return this.httpClient.get(this.API_URL + '/properties/' + id);
+  }  
+
+  getPropertyRooms(id: number){
+    return this.httpClient.get(this.API_URL + '/properties/' + id + '/rooms');
+  }   
 
   storeProperty(property: Property){
     return this.httpClient.post(this.API_URL + '/properties', property);
   }
 
-  // Customers
+  // Customer Types
   getCustomerTypes(){
     return this.httpClient.get(this.API_URL + '/customer-types');
   }
 
+  // Customers
   getCustomers() {
     return this.httpClient.get(this.API_URL + '/customers');
   }
+
+  getAllCustomers() {
+    return this.httpClient.get(this.API_URL + '/customers/all');
+  }  
 
   getCustomer(id: number){
     return this.httpClient.get(this.API_URL + '/customers/' + id);

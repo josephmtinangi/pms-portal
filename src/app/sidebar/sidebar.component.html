@@ -35,4 +35,45 @@
       <li><a [routerLink]="['/customers/create']">Create</a></li>
     </ul>
   </li>
+  <li><a [routerLink]="['/lease/create']"><i class="fa fa-file-text"></i> <span>Lease</span></a></li>
+  <li class="treeview">
+      <a href="#"><i class="fa fa-money"></i> <span>Payments</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a [routerLink]="['/customer-payments']">Customer Payments</a></li>
+        <li><a [routerLink]="['/client-payments']">Client Payments</a></li>
+      </ul>
+  </li>  
+  <li class="treeview">
+      <a href="#"><i class="fa fa-file"></i> <span>Reports</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a [routerLink]="['/invoices']">Invoice</a></li>
+      </ul>
+  </li>  
+  <li class="treeview">
+      <a href="#"><i class="fa fa-wrench"></i> <span>Settings</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a [routerLink]="['/real-estate-agents']">Real Estate Agents</a></li>
+        <li><a [routerLink]="['/accounts']">Accounts</a></li>
+        <li><a [routerLink]="['/users']">Users</a></li>
+        <li><a [routerLink]="['/roles']">Roles</a></li>
+        <li><a [routerLink]="['/property-types']">Property Types</a></li>
+        <li><a [routerLink]="['/customer-types']">Customer Types</a></li>
+        <li><a [routerLink]="['/regions']">Regions</a></li>
+        <li><a [routerLink]="['/districts']">Districts</a></li>
+        <li><a [routerLink]="['/Wards']">Wards</a></li>
+        <li><a [routerLink]="['/villages']">Villages</a></li>
+      </ul>
+  </li>  
 </ul>
