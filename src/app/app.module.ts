@@ -24,6 +24,8 @@ import { CustomerListComponent } from './customers/customer-list/customer-list.c
 import { CustomerCreateComponent } from './customers/customer-create/customer-create.component';
 import { CustomerDetailComponent } from './customers/customer-detail/customer-detail.component';
 import { LeaseCreateComponent } from './leases/lease-create/lease-create.component';
+import { RealEstateAgentsListComponent } from './real-estate-agents/real-estate-agents-list/real-estate-agents-list.component';
+import { RealEstateAgentsCreateComponent } from './real-estate-agents/real-estate-agents-create/real-estate-agents-create.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { LeaseCreateComponent } from './leases/lease-create/lease-create.compone
     CustomerListComponent,
     CustomerCreateComponent,
     CustomerDetailComponent,
-    LeaseCreateComponent
+    LeaseCreateComponent,
+    RealEstateAgentsListComponent,
+    RealEstateAgentsCreateComponent
   ],
   imports: [
     BrowserModule,

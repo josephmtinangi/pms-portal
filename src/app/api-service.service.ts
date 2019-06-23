@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Client } from './_models/client.model';
 import { Customer } from './_models/customer.model';
 import { Property } from './_models/property.model';
+import { RealEstateAgent } from './_models/real_estate_agent.model';
 
 @Injectable({
   providedIn: 'root'
@@ -90,6 +91,15 @@ export class ApiServiceService {
 
   storeCustomer(customer: Customer) {
     return this.httpClient.post(this.API_URL + '/customers', customer);
+  }
+
+  // Real Estate Agents
+  getRealEstateAgents(){
+    return this.httpClient.get(this.API_URL + '/real-estate-agents');
+  }
+
+  storeRealEstateAgents(realEstateAgent: RealEstateAgent){
+    return this.httpClient.post(this.API_URL + '/real-estate-agents', realEstateAgent);
   }
 
   // Regions

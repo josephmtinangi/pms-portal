@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Real Estate Agents</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table *ngIf="realEstateAgents.length > 0" class="table table-bordered">
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Name</th>
+            <th>Logo</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Physical Address</th>
+            <th>Postal Address</th>
+          </tr>
+          <tr *ngFor="let realEstateAgent of realEstateAgents">
+            <td>{{ realEstateAgent.id }}</td>
+            <td>{{ realEstateAgent.name }}</td>
+            <td>{{ realEstateAgent.logo }}</td>
+            <td>{{ realEstateAgent.phone }}</td>
+            <td>{{ realEstateAgent.email }}</td>
+            <td>{{ realEstateAgent.physical_address }}</td>
+            <td>{{ realEstateAgent.postal_address }}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer clearfix">
+        <ul class="pagination pagination-sm no-margin pull-right">
+          <li><a href="#">&laquo;</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- /.box -->   
+  </div>
+</div>
