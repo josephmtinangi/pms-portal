@@ -93,6 +93,11 @@ export class ApiServiceService {
     return this.httpClient.post(this.API_URL + '/customers', customer);
   }
 
+  // Customer Payments
+  getCustomerPayments(){
+    return this.httpClient.get(this.API_URL + '/customer-payments');
+  }
+
   // Real Estate Agents
   getRealEstateAgents(){
     return this.httpClient.get(this.API_URL + '/real-estate-agents');

@@ -26,6 +26,7 @@ import { CustomerDetailComponent } from './customers/customer-detail/customer-de
 import { LeaseCreateComponent } from './leases/lease-create/lease-create.component';
 import { RealEstateAgentsListComponent } from './real-estate-agents/real-estate-agents-list/real-estate-agents-list.component';
 import { RealEstateAgentsCreateComponent } from './real-estate-agents/real-estate-agents-create/real-estate-agents-create.component';
+import { CustomerPaymentsComponent } from './customer-payments/customer-payments.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { RealEstateAgentsCreateComponent } from './real-estate-agents/real-estat
     CustomerDetailComponent,
     LeaseCreateComponent,
     RealEstateAgentsListComponent,
-    RealEstateAgentsCreateComponent
+    RealEstateAgentsCreateComponent,
+    CustomerPaymentsComponent
   ],
   imports: [
     BrowserModule,
