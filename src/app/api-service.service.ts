@@ -98,7 +98,7 @@ export class ApiServiceService {
     return this.httpClient.get(this.API_URL + '/real-estate-agents');
   }
 
-  storeRealEstateAgents(realEstateAgent: RealEstateAgent){
+  storeRealEstateAgent(realEstateAgent: RealEstateAgent){
     return this.httpClient.post(this.API_URL + '/real-estate-agents', realEstateAgent);
   }
 

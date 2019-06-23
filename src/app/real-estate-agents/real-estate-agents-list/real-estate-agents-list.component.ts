@@ -20,7 +20,6 @@ export class RealEstateAgentsListComponent implements OnInit {
   getRealEstateAgents(){
     this.apiService.getRealEstateAgents().subscribe((res: any) => {
       this.realEstateAgents = res.data;
-      console.log(this.realEstateAgents);
     })
   }
 
