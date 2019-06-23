@@ -35,3 +35,46 @@
       <!-- /.box -->
   </div>
 </div>
+<div *ngIf="customer" class="row">
+  <div class="col-sm-12">
+    <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Contracts</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Rent per month (TSH)</th>
+              <th>Payment Interval (months)</th>
+              <th>Duration (months)</th>
+              <th>Control Number</th>
+            </tr>
+            <tr *ngFor="let contract of customer.customer_contracts">
+              <td>{{ contract.id }}</td>
+              <td>{{ contract.start_date }}</td>
+              <td>{{ contract.end_date }}</td>
+              <td>{{ contract.rent_per_month }}</td>
+              <td>{{ contract.payment_interval }}</td>
+              <td>{{ contract.contract_duration }}</td>
+              <td>{{ contract.control_number }}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+          <ul class="pagination pagination-sm no-margin pull-right">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.box -->   
+  </div>
+</div>

@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomerDetailComponent implements OnInit {
 
-  customer: Customer;
+  customer: Customer = null;
 
   constructor(
     private route: ActivatedRoute,
