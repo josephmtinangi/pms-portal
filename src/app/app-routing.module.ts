@@ -21,6 +21,7 @@ import { RealEstateAgentsCreateComponent } from './real-estate-agents/real-estat
 import { RealEstateAgentsListComponent } from './real-estate-agents/real-estate-agents-list/real-estate-agents-list.component';
 import { CustomerPaymentsComponent } from './customer-payments/customer-payments.component';
 import { LeaseListComponent } from './leases/lease-list/lease-list.component';
+import { LeaseDetailComponent } from './leases/lease-detail/lease-detail.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,7 @@ const routes: Routes = [
 
       { path: 'leases/create', component: LeaseCreateComponent, canActivate: [DashboardGuard] },
       { path: 'leases', component: LeaseListComponent, canActivate: [DashboardGuard] },
+      { path: 'leases/:id', component: LeaseDetailComponent, canActivate: [DashboardGuard]},
 
       { path: 'customer-payments', component: CustomerPaymentsComponent, canActivate: [DashboardGuard]},
 

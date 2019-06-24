@@ -1,0 +1,118 @@
+<div *ngIf="lease" class="row">
+  <div class="col-md-6">
+      <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Details</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tr>
+                <th>Customer</th>
+                <td>
+                  <a routerLink="/customers/{{ lease.customer.id }}">
+                      {{ lease.customer.first_name }} {{ lease.customer.middle_name }} {{ lease.customer.last_name }}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th>Property</th>
+                <td>
+                  <a routerLink="/properties/{{ lease.property.id }}">
+                      {{ lease.property.name }}
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th>Rent per month</th>
+                <td>{{ lease.rent_per_month | currency:'TZS' }}</td>
+              </tr>
+              <tr>
+                <th>Payment interval (months)</th>
+                <td>{{ lease.payment_interval }}</td>
+              </tr>
+              <tr>
+                <th>Duration (months)</th>
+                <td>{{ lease.contract_duration }}</td>
+              </tr>
+              <tr>
+                <th>Start date</th>
+                <td>{{ lease.start_date | date }}</td>
+              </tr>
+              <tr>
+                <th>End date</th>
+                <td>{{ lease.end_date | date }}</td>
+              </tr>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+  </div>
+  <div class="col-md-6">
+      <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Rooms</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Number</th>
+                  <th>Floor</th>
+                  <th>Size</th>
+                  <th>Price/SQM</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let room of lease.rooms">
+                  <td>{{ room.room.id }}</td>
+                  <td>{{ room.room.number }}</td>
+                  <td>{{ room.room.floor }}</td>
+                  <td>{{ room.room.size }} {{ room.room.metrics }}</td>
+                  <td>{{ room.room.price_per_sqm | currency:'TZS' }}</td>
+                  <td>{{ room.room.status }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+  </div>  
+</div>
+<div *ngIf="lease" class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Control Numbers</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table *ngIf="lease" class="table table-bordered">
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Control Number</th>
+              <th>Amount</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Expiry date</th>
+            </tr>
+            <tr *ngFor="let control_number of lease.control_numbers">
+              <td>{{ control_number.id }}</td>
+              <td>{{ control_number.control_number }}</td>
+              <td>{{ control_number.amount_to_be_paid | currency:'TZS' }}</td>
+              <td>{{ control_number.start_date | date }}</td>
+              <td>{{ control_number.end_date | date }}</td>
+              <td>{{ control_number.expiry_date | date }}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->   
+    </div>
+  </div>

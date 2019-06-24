@@ -16,6 +16,7 @@
               <th>Rent per month (TSH)</th>
               <th>Payment interval (months)</th>
               <th>Duration (months)</th>
+              <th>Options</th>
             </tr>
             <tr *ngFor="let lease of leases">
               <td>{{ lease.id }}</td>
@@ -34,6 +35,9 @@
               <td>{{ lease.rent_per_month }}</td>
               <td>{{ lease.payment_interval }}</td>
               <td>{{ lease.contract_duration }}</td>
+              <td>
+                <a routerLink="/leases/{{  lease.id }}"><i class="fa fa-eye"></i></a>
+              </td>
             </tr>
           </table>
         </div>
