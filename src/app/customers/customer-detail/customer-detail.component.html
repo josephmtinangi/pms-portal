@@ -51,16 +51,18 @@
               <th>Rent per month (TSH)</th>
               <th>Payment Interval (months)</th>
               <th>Duration (months)</th>
-              <th>Control Number</th>
+              <th>Options</th>
             </tr>
             <tr *ngFor="let contract of customer.customer_contracts">
               <td>{{ contract.id }}</td>
-              <td>{{ contract.start_date }}</td>
-              <td>{{ contract.end_date }}</td>
-              <td>{{ contract.rent_per_month }}</td>
+              <td>{{ contract.start_date | date }}</td>
+              <td>{{ contract.end_date | date }}</td>
+              <td>{{ contract.rent_per_month | currency:'TZS' }}</td>
               <td>{{ contract.payment_interval }}</td>
               <td>{{ contract.contract_duration }}</td>
-              <td>{{ contract.control_number }}</td>
+              <td>
+                <a routerLink="/leases/{{ contract.id }}"><div class="fa fa-eye"></div></a>
+              </td>
             </tr>
           </table>
         </div>
