@@ -23,6 +23,7 @@
               <a routerLink="/clients/{{ property.client.id }}">
                   {{ property.client.first_name }} {{ property.client.middle_name }} {{ property.client.last_name }}
               </a>
+              ({{ property.client.client_type.name }})
             </td>
             <td>{{ property.village.name }}</td>
             <td>
