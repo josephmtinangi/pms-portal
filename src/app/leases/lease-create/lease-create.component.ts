@@ -40,7 +40,24 @@ export class LeaseCreateComponent implements OnInit {
   }
 
   store(){
-    console.log(this.leaseForm.value);
+    this.submitted = true;    
+
+    if(this.leaseForm.invalid){
+      return;
+    }
+
+    this.apiService.storeLease(this.leaseForm.value).subscribe((res: any) => {
+      if(res.status == 200){
+        this.success = true;
+        this.submitted = false;
+        this.leaseForm.reset();
+      }
+    },
+    error => {
+      this.success = false;
+      this.submitted = false;
+      console.log(error.message);
+    });
   }
 
   getAllProperties(){

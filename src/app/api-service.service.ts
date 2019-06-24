@@ -4,6 +4,7 @@ import { Client } from './_models/client.model';
 import { Customer } from './_models/customer.model';
 import { Property } from './_models/property.model';
 import { RealEstateAgent } from './_models/real_estate_agent.model';
+import { Lease } from './_models/lease.model';
 
 @Injectable({
   providedIn: 'root'
@@ -105,6 +106,11 @@ export class ApiServiceService {
 
   storeRealEstateAgent(realEstateAgent: RealEstateAgent){
     return this.httpClient.post(this.API_URL + '/real-estate-agents', realEstateAgent);
+  }
+
+  // Leases
+  storeLease(lease: Lease){
+    return this.httpClient.post(this.API_URL + '/leases', lease);
   }
 
   // Regions
