@@ -109,6 +109,10 @@ export class ApiServiceService {
   }
 
   // Leases
+  getLeases(){
+    return this.httpClient.get(this.API_URL + '/leases');
+  }
+
   storeLease(lease: Lease){
     return this.httpClient.post(this.API_URL + '/leases', lease);
   }
