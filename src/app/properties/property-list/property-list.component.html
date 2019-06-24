@@ -16,9 +16,17 @@
           </tr>
           <tr *ngFor="let property of properties">
             <td>{{ property.id }}</td>
-            <td>{{ property.name }}</td>
+            <td>
+              <a routerLink="/properties/{{ property.id }}">
+                  {{ property.name }}
+              </a>
+            </td>
             <td>{{ property.property_type.name }}</td>
-            <td>{{ property.client.first_name }}</td>
+            <td>
+              <a routerLink="/clients/{{ property.client.id }}">
+                  {{ property.client.first_name }} {{ property.client.middle_name }} {{ property.client.last_name }}
+              </a>
+            </td>
             <td>{{ property.village.name }}</td>
           </tr>
         </table>
