@@ -38,6 +38,10 @@ export class ApiServiceService {
     return this.httpClient.get(this.API_URL + '/clients');
   }
 
+  getClient(id: number) {
+    return this.httpClient.get(this.API_URL + '/clients/' + id);
+  }
+
   getAllClients(){
     return this.httpClient.get(this.API_URL + '/clients/all');
   }  
