@@ -1,8 +1,18 @@
-<div class="row">
+<div *ngIf="user" class="row">
+    <div class="col-sm-4">
+      <!-- Profile Image -->
+      <div class="box box-primary">
+          <div class="box-body box-profile">
+            <img class="profile-user-img img-responsive img-circle" src="http://localhost:8000/api/attachments/{{ user.avatar }}" alt="User profile picture">
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->      
+    </div>
     <div class="col-sm-8">
       <div class="alert alert-success" *ngIf="success">Success</div>
       <!-- Horizontal Form -->
-      <div *ngIf="user" class="box box-info">
+      <div class="box box-info">
           <div class="box-header with-border">
             <h3 class="box-title">Profile</h3>
           </div>
