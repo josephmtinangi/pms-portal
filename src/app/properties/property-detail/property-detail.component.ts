@@ -15,6 +15,7 @@ export class PropertyDetailComponent implements OnInit {
   constructor(private apiService: ApiServiceService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.getProperty();
   }
 
   getProperty():void {

@@ -13,14 +13,11 @@
             <th>Type</th>
             <th>Client</th>
             <th>Location</th>
+            <th>Options</th>
           </tr>
           <tr *ngFor="let property of properties">
             <td>{{ property.id }}</td>
-            <td>
-              <a routerLink="/properties/{{ property.id }}">
-                  {{ property.name }}
-              </a>
-            </td>
+            <td>{{ property.name }}</td>
             <td>{{ property.property_type.name }}</td>
             <td>
               <a routerLink="/clients/{{ property.client.id }}">
@@ -28,6 +25,11 @@
               </a>
             </td>
             <td>{{ property.village.name }}</td>
+            <td>
+                <a routerLink="/properties/{{ property.id }}">
+                  <div class="fa fa-eye"></div>
+                </a>              
+            </td>
           </tr>
         </table>
       </div>
