@@ -24,7 +24,9 @@ export class RealEstateAgentsCreateComponent implements OnInit {
       phone: [''],
       email: [''],
       physical_address: [''],
-      postal_address: ['']
+      postal_address: [''],
+      account_name: [''],
+      account_number: ['']
     });
    }
 

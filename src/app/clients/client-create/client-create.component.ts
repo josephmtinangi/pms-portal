@@ -30,7 +30,9 @@ export class ClientCreateComponent implements OnInit {
       physical_address: [''],
       postal_address: [''],
       tin: [''],
-      client_type_id: ['']
+      client_type_id: [''],
+      account_name: [''],
+      account_number: ['']
     });
   }
 
