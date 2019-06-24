@@ -40,6 +40,10 @@
                 <th>Physical address</th>
                 <td>{{ client.physical_address }}</td>
               </tr>
+              <tr>
+                <th>Registered</th>
+                <td>{{ client.created_at | date }}</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -88,6 +92,7 @@
               <th>Name</th>
               <th>Type</th>
               <th>Location</th>
+              <th>Registered</th>
             </tr>
             <tr *ngFor="let property of client.properties">
               <td>{{ property.id }}</td>
@@ -98,6 +103,7 @@
               </td>
               <td>{{ property.property_type.name }}</td>
               <td>{{ property.village.name }}</td>
+              <td>{{ property.created_at | date }}</td>
             </tr>
           </table>
         </div>

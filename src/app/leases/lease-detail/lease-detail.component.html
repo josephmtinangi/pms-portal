@@ -43,6 +43,10 @@
                 <th>End date</th>
                 <td>{{ lease.end_date | date }}</td>
               </tr>
+              <tr>
+                <th>Entered</th>
+                <td>{{ lease.created_at | date }}</td>
+              </tr>
             </table>
           </div>
           <!-- /.box-body -->

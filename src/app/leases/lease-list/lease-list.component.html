@@ -16,6 +16,7 @@
               <th>Rent per month</th>
               <th>Payment interval (months)</th>
               <th>Duration (months)</th>
+              <th>Entered</th>
               <th>Options</th>
             </tr>
             <tr *ngFor="let lease of leases">
@@ -35,6 +36,7 @@
               <td>{{ lease.rent_per_month | currency:'TZS' }}</td>
               <td>{{ lease.payment_interval }}</td>
               <td>{{ lease.contract_duration }}</td>
+              <td>{{ lease.created_at | date }}</td>
               <td>
                 <a routerLink="/leases/{{  lease.id }}"><i class="fa fa-eye"></i></a>
               </td>

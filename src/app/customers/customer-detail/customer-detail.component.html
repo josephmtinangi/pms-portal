@@ -26,7 +26,7 @@
               <b>Physical Address</b> <a class="pull-right">{{ customer.physical_address }}</a>
             </li>
             <li class="list-group-item">
-              <b>Registered</b> <a class="pull-right">{{ customer.created_at }}</a>
+              <b>Registered</b> <a class="pull-right">{{ customer.created_at | date }}</a>
             </li>
           </ul>
         </div>
@@ -51,6 +51,7 @@
               <th>Rent per month (TSH)</th>
               <th>Payment Interval (months)</th>
               <th>Duration (months)</th>
+              <th>Entered</th>
               <th>Options</th>
             </tr>
             <tr *ngFor="let contract of customer.customer_contracts">
@@ -60,6 +61,7 @@
               <td>{{ contract.rent_per_month | currency:'TZS' }}</td>
               <td>{{ contract.payment_interval }}</td>
               <td>{{ contract.contract_duration }}</td>
+              <td>{{ contract.created_at | date }}</td>
               <td>
                 <a routerLink="/leases/{{ contract.id }}"><div class="fa fa-eye"></div></a>
               </td>

@@ -6,6 +6,34 @@
             <img class="profile-user-img img-responsive img-circle" src="http://localhost:8000/api/attachments/{{ user.avatar }}" alt="User profile picture">
           </div>
           <!-- /.box-body -->
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>First name</th>
+                <td>{{ user.first_name }}</td>
+              </tr>
+              <tr>
+                <th>Middle name</th>
+                <td>{{ user.middle_name }}</td>
+              </tr>
+              <tr>
+                <th>Last name</th>
+                <td>{{ user.last_name }}</td>
+              </tr>
+              <tr>
+                <th>Phone</th>
+                <td>{{ user.phone }}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+              </tr>
+              <tr>
+                <th>Registered</th>
+                <td>{{ user.created_at | date }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <!-- /.box -->      
     </div>
@@ -14,7 +42,7 @@
       <!-- Horizontal Form -->
       <div class="box box-info">
           <div class="box-header with-border">
-            <h3 class="box-title">Profile</h3>
+            <h3 class="box-title">Edit</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
