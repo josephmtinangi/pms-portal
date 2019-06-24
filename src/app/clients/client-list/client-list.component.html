@@ -10,6 +10,7 @@
           <tr>
             <th style="width: 10px">#</th>
             <th>Name</th>
+            <th>Code</th>
             <th>Type</th>
             <th>Phone</th>
             <th>Email</th>
@@ -20,6 +21,7 @@
           <tr *ngFor="let client of clients">
             <td>{{ client.id }}</td>
             <td>{{ client.first_name }} {{ client.middle_name }} {{ client.last_name }}</td>
+            <td>{{ client.code }}</td>
             <td>{{ client.client_type.name }}</td>
             <td>{{ client.phone }}</td>
             <td>{{ client.email }}</td>
