@@ -1,5 +1,72 @@
-<div *ngIf="user">
-  <h1>Name: {{ user.name }}</h1>
-  <h1>Email: {{ user.email }}</h1>
-  <h1>Member since: {{ user.created_at }}</h1>  
-</div>
+<div class="row">
+    <div class="col-sm-8">
+      <div class="alert alert-success" *ngIf="success">Success</div>
+      <!-- Horizontal Form -->
+      <div *ngIf="user" class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">Profile</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal" [formGroup]="userForm" (ngSubmit)="update()">
+            <div class="box-body">
+              <div class="form-group">
+                  <label for="first_name" class="col-sm-2 control-label">First name</label>
+                  <div class="col-sm-10">
+                    <input type="text" formControlName="first_name" value="{{ user.first_name }}" class="form-control" id="first_name" placeholder="First name">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="middle_name" class="col-sm-2 control-label">Middle name</label>
+                  <div class="col-sm-10">
+                    <input type="text" formControlName="middle_name" value="{{ user.middle_name }}" class="form-control" id="middle_name" placeholder="Middle name">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="last_name" class="col-sm-2 control-label">Last name</label>
+                  <div class="col-sm-10">
+                    <input type="text" formControlName="last_name" value="{{ user.last_name }}" class="form-control" id="last_name" placeholder="Last name">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="phone" class="col-sm-2 control-label">Phone</label>
+                  <div class="col-sm-10">
+                    <input type="tel" formControlName="phone" value="{{ user.phone }}" class="form-control" id="phone" placeholder="Phone">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="email" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" formControlName="email" value="{{ user.email }}" class="form-control" id="email" placeholder="Email">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="old_password" class="col-sm-2 control-label">Old Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" formControlName="old_password" class="form-control" id="old_password" placeholder="Old Password">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="password" class="col-sm-2 control-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="password_confirmation" class="col-sm-2 control-label">Password confirmation</label>
+                  <div class="col-sm-10">
+                    <input type="password" formControlName="password_confirmation" class="form-control" id="password_confirmation" placeholder="Password confirmation">
+                  </div>
+              </div>                           
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button type="submit" *ngIf="!submitted" class="btn btn-info pull-right">Update</button>
+              <button type="submit" *ngIf="submitted" class="btn btn-info pull-right"><i class="fa fa-spinner fa-spin"></i> Updating...</button>
+            </div>
+            <!-- /.box-footer -->
+          </form>
+        </div>
+        <!-- /.box -->    
+    </div>
+  </div>
