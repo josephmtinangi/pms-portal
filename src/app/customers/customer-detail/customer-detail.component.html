@@ -1,38 +1,58 @@
-<div class="row">
+<div *ngIf="customer" class="row">
   <div class="col-md-3">
-    <!-- Profile Image -->
-    <div *ngIf="customer" class="box box-primary">
-        <div class="box-body box-profile">
-          <h3 class="profile-username text-center">
-            {{ customer.first_name }} {{ customer.middle_name }} {{ customer.last_name }}
-          </h3>
-
-          <p class="text-muted text-center">{{ customer.customer_type.name }}</p>
-
-          <ul class="list-group list-group-unbordered">
-            <li class="list-group-item">
-              <b>Phone</b> <a class="pull-right">{{ customer.phone }}</a>
-            </li>
-            <li class="list-group-item">
-              <b>Email</b> <a class="pull-right">{{ customer.email }}</a>
-            </li>
-            <li class="list-group-item">
-              <b>TIN</b> <a class="pull-right">{{ customer.tin }}</a>
-            </li>
-            <li class="list-group-item">
-              <b>Postal Address</b> <a class="pull-right">{{ customer.postal_address }}</a>
-            </li>
-            <li class="list-group-item">
-              <b>Physical Address</b> <a class="pull-right">{{ customer.physical_address }}</a>
-            </li>
-            <li class="list-group-item">
-              <b>Registered</b> <a class="pull-right">{{ customer.created_at | date }}</a>
-            </li>
-          </ul>
-        </div>
-        <!-- /.box-body -->
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Customer</h3>
       </div>
-      <!-- /.box -->
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>First name</th>
+                <td>{{ customer.first_name }}</td>
+              </tr>
+              <tr>
+                <th>Middle name</th>
+                <td>{{ customer.middle_name }}</td>
+              </tr>
+              <tr>
+                <th>Last name</th>
+                <td>{{ customer.last_name }}</td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>{{ customer.customer_type.name }}</td>
+              </tr>
+              <tr>
+                <th>TIN</th>
+                <td>{{ customer.tin }}</td>
+              </tr>
+              <tr>
+                <th>Phone</th>
+                <td>{{ customer.phone }}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{{ customer.email }}</td>
+              </tr>
+              <tr>
+                <th>Postal address</th>
+                <td>{{ customer.postal_address }}</td>
+              </tr>
+              <tr>
+                <th>Physical address</th>
+                <td>{{ customer.physical_address }}</td>
+              </tr>
+              <tr>
+                <th>Registered</th>
+                <td>{{ customer.created_at | date }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
   </div>
 </div>
 <div *ngIf="customer" class="row">
