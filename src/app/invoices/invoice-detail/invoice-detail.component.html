@@ -78,6 +78,14 @@
             </td>
           </tr>
           <tr>
+            <th>AMOUNT DUE</th>
+            <th>
+              <div *ngIf="customerPaymentSchedule">
+                {{ customerPaymentSchedule.amount_to_be_paid | currency:'TZS' }}
+              </div>
+            </th>
+          </tr>
+          <tr>
             <th>CONTROL NUMBER</th>
             <td>
               <div *ngIf="customerPaymentSchedule">

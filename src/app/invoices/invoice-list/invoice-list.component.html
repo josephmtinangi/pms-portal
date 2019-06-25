@@ -11,6 +11,7 @@
             <th style="width: 10px">#</th>
             <th>Number</th>
             <th>Status</th>
+            <th>Generated</th>
             <th>Options</th>
           </tr>
           <tr *ngFor="let invoice of invoices">
@@ -20,6 +21,7 @@
               <div *ngIf="invoice.paid_at" class="text-success"><strong>PAID</strong></div>
               <div *ngIf="!invoice.paid_at" class="text-danger"><strong>NOT PAID</strong></div>
             </td>
+            <td>{{ invoice.created_at | date }}</td>
             <td>
               <a routerLink="/invoices/{{ invoice.id }}"><div class="fa fa-eye"></div></a>
             </td>
