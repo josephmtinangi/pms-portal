@@ -24,6 +24,8 @@ import { LeaseListComponent } from './leases/lease-list/lease-list.component';
 import { LeaseDetailComponent } from './leases/lease-detail/lease-detail.component';
 import { PropertyDetailComponent } from './properties/property-detail/property-detail.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
+import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
+import { InvoiceDetailComponent } from './invoices/invoice-detail/invoice-detail.component';
 
 const routes: Routes = [
   {
@@ -67,6 +69,9 @@ const routes: Routes = [
       { path: 'leases/create', component: LeaseCreateComponent, canActivate: [DashboardGuard] },
       { path: 'leases', component: LeaseListComponent, canActivate: [DashboardGuard] },
       { path: 'leases/:id', component: LeaseDetailComponent, canActivate: [DashboardGuard]},
+
+      { path: 'invoices', component: InvoiceListComponent, canActivate: [DashboardGuard] },
+      { path: 'invoices/:id', component: InvoiceDetailComponent, canActivate: [DashboardGuard] },
 
       { path: 'customer-payments', component: CustomerPaymentsComponent, canActivate: [DashboardGuard]},
 

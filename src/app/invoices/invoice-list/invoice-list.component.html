@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Invoices</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-bordered">
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Number</th>
+            <th>Status</th>
+            <th>Options</th>
+          </tr>
+          <tr *ngFor="let invoice of invoices">
+            <td>{{ invoice.id }}</td>
+            <td>{{ invoice.number }}</td>
+            <td>
+              <div *ngIf="invoice.paid_at" class="text-success"><strong>PAID</strong></div>
+              <div *ngIf="!invoice.paid_at" class="text-danger"><strong>NOT PAID</strong></div>
+            </td>
+            <td>
+              <a routerLink="/invoices/{{ invoice.id }}"><div class="fa fa-eye"></div></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->   
+  </div>
+</div>

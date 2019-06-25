@@ -31,6 +31,8 @@ import { LeaseListComponent } from './leases/lease-list/lease-list.component';
 import { LeaseDetailComponent } from './leases/lease-detail/lease-detail.component';
 import { PropertyDetailComponent } from './properties/property-detail/property-detail.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
+import { InvoiceDetailComponent } from './invoices/invoice-detail/invoice-detail.component';
+import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ClientDetailComponent } from './clients/client-detail/client-detail.com
     LeaseListComponent,
     LeaseDetailComponent,
     PropertyDetailComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
+    InvoiceDetailComponent,
+    InvoiceListComponent
   ],
   imports: [
     BrowserModule,
