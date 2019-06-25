@@ -15,6 +15,7 @@ export class LeaseCreateComponent implements OnInit {
   leaseForm: FormGroup;
   submitted: boolean = false;
   success: boolean = false;
+  errorMessage: string = null;
 
   customers: Array<Customer> = [];
   properties: Array<Property> = [];
@@ -51,12 +52,16 @@ export class LeaseCreateComponent implements OnInit {
         this.success = true;
         this.submitted = false;
         this.leaseForm.reset();
+
+        this.apiService.generateControlNumber({customer_contract_id: res.data.id}).subscribe((res: any) => {
+          //
+        });
       }
     },
     error => {
       this.success = false;
       this.submitted = false;
-      console.log(error.message);
+      this.errorMessage = 'error';
     });
   }
 

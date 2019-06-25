@@ -18,7 +18,7 @@
             <td>{{ invoice.id }}</td>
             <td>{{ invoice.number }}</td>
             <td>
-              <div *ngIf="invoice.paid_at" class="text-success"><strong>PAID</strong></div>
+              <div *ngIf="invoice.paid_at"><strong class="text-success">PAID</strong>({{ invoice.paid_at | date }})</div>
               <div *ngIf="!invoice.paid_at" class="text-danger"><strong>NOT PAID</strong></div>
             </td>
             <td>{{ invoice.created_at | date }}</td>

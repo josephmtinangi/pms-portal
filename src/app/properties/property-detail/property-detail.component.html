@@ -17,6 +17,10 @@
                   <td>{{ property.property_type.name }}</td>
                 </tr>
                 <tr>
+                  <th>Number of floors</th>
+                  <td>{{ property.floors }}</td>
+                </tr>
+                <tr>
                   <th>Client</th>
                   <td>
                     <a routerLink="/clients/{{ property.client.id }}">
@@ -26,10 +30,6 @@
                   </td>
                 </tr>
                 <tr>
-                <tr>
-                  <th>Postal address</th>
-                  <td>{{ property.postal_address }}</td>
-                </tr>
                 <tr>
                   <th>Physical address</th>
                   <td>{{ property.physical_address }}</td>
@@ -54,7 +54,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table class="table table-bordered">
+          <table *ngIf="property.rooms.length > 0" class="table table-bordered">
             <tr>
               <th style="width: 10px">#</th>
               <th>Number</th>

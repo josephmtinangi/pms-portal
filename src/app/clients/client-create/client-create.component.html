@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-sm-8">
     <div class="alert alert-success" *ngIf="success">Success</div>
+    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
     <!-- Horizontal Form -->
     <div class="box box-info">
         <div class="box-header with-border">

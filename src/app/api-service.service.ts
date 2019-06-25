@@ -126,6 +126,11 @@ export class ApiServiceService {
     return this.httpClient.post(this.API_URL + '/leases', lease);
   }
 
+  // Generate control numbers
+  generateControlNumber(payload: any){
+    return this.httpClient.post(this.API_URL + '/control-numbers', payload);
+  }
+
   // Invoices
   getInvoices() {
     return this.httpClient.get(this.API_URL + '/invoices');

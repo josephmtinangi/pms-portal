@@ -14,7 +14,7 @@ export class ClientCreateComponent implements OnInit {
   client_types: Array<ClientType> = [];
   submitted: boolean = false;
   success: boolean = false;
-  errorMessage: string = '';
+  errorMessage: string = null;
 
   constructor(
     private apiService: ApiServiceService,
@@ -53,12 +53,13 @@ export class ClientCreateComponent implements OnInit {
       if(res.status == 200){
         this.success = true;
         this.submitted = false;
+        this.clientForm.reset();
       }
     },
     error => {
       this.success = false;
       this.submitted = false;
-      console.log(error.message);
+      this.errorMessage = error.message;
     });
 
   }

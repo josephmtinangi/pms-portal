@@ -86,7 +86,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table class="table table-bordered">
+          <table *ngIf="client.properties.length > 0" class="table table-bordered">
             <tr>
               <th style="width: 10px">#</th>
               <th>Name</th>
