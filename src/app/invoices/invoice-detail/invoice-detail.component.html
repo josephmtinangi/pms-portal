@@ -1,3 +1,121 @@
-<p>
-  invoice-detail works!
-</p>
+<div *ngIf="invoice" class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Invoice [{{ invoice.number }}]</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table class="table">
+          <tr>
+            <th>INVOICE #</th>
+            <td>{{ invoice.number }}</td>
+          </tr>
+          <tr>
+            <th>DATE</th>
+            <td>{{ invoice.created_at | date }}</td>
+          </tr>
+          <tr>
+            <th>STATUS</th>
+            <td>
+              <strong class="text-success" *ngIf="invoice.paid_at">PAID</strong>
+              <strong class="text-danger" *ngIf="!invoice.paid_at">NOT PAID</strong>
+            </td>
+          </tr>
+          <tr>
+            <th>FROM</th>
+            <td>
+              <div *ngIf="agent">
+                {{ agent.name }}<br>
+                {{ agent.physical_address }}<br>
+                {{ agent.postal_address }}<br>
+                Phone: {{ agent.phone }}<br>
+                Email: {{ agent.email }}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>BILL TO</th>
+            <td>
+              <div *ngIf="customer">
+                  {{ customer.first_name }} {{ customer.middle_name }} {{ customer.last_name }}<br>
+                  {{ customer.postal_address }}<br>
+                  {{ customer.physical_address }}<br>
+                  Phone: {{ customer.phone }}<br>
+                  Email: {{ customer.email }}
+              </div>
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <th>DESCRIPTION</th>
+            <th>AMOUNT</th>
+          </tr>
+          <tr>
+            <td>
+              <div *ngIf="customerPaymentSchedule">
+                Rent from {{ customerPaymentSchedule.start_date | date }} to {{ customerPaymentSchedule.end_date | date }}
+              </div>
+            </td>
+            <td>
+              <div *ngIf="customerPaymentSchedule">
+                {{ customerPaymentSchedule.amount_to_be_paid | currency:'TZS' }}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2"></td>
+          </tr>
+          <tr>
+            <th>TOTAL</th>
+            <td>
+              <div *ngIf="customerPaymentSchedule">
+                {{ customerPaymentSchedule.amount_to_be_paid | currency:'TZS' }}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>CONTROL NUMBER</th>
+            <td>
+              <div *ngIf="customerPaymentSchedule">
+                  {{ customerPaymentSchedule.control_number }}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>How to pay</th>
+            <td>
+              <strong>BANK</strong>
+
+              <hr>
+
+              <strong>MPESA</strong>
+
+              <hr>
+
+              <strong>TIGO PESA</strong>
+
+              <hr>
+
+              <strong>AIRTEL MONEY</strong>
+              
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              Thank you for doing business with us.
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              If you have any question about this invoice, please contact
+              <span *ngIf="agent">{{ agent.phone }}, {{ agent.email }}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box --> 
+  </div>
+</div>
