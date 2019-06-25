@@ -35,6 +35,13 @@ import { InvoiceDetailComponent } from './invoices/invoice-detail/invoice-detail
 import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
 import { RegionListComponent } from './regions/region-list/region-list.component';
 import { RegionCreateComponent } from './regions/region-create/region-create.component';
+import { ClientTypeListComponent } from './client-types/client-type-list/client-type-list.component';
+import { ClientTypeCreateComponent } from './client-types/client-type-create/client-type-create.component';
+import { PropertyTypeListComponent } from './property-types/property-type-list/property-type-list.component';
+import { PropertyTypeCreateComponent } from './property-types/property-type-create/property-type-create.component';
+import { CustomerTypeListComponent } from './customer-types/customer-type-list/customer-type-list.component';
+import { CustomerTypeCreateComponent } from './customer-types/customer-type-create/customer-type-create.component';
+import { ClientPaymentsComponent } from './client-payments/client-payments.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +72,14 @@ import { RegionCreateComponent } from './regions/region-create/region-create.com
     InvoiceDetailComponent,
     InvoiceListComponent,
     RegionListComponent,
-    RegionCreateComponent
+    RegionCreateComponent,
+    ClientTypeListComponent,
+    ClientTypeCreateComponent,
+    PropertyTypeListComponent,
+    PropertyTypeCreateComponent,
+    CustomerTypeListComponent,
+    CustomerTypeCreateComponent,
+    ClientPaymentsComponent
   ],
   imports: [
     BrowserModule,

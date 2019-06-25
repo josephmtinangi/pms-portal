@@ -28,6 +28,13 @@ import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.compo
 import { InvoiceDetailComponent } from './invoices/invoice-detail/invoice-detail.component';
 import { RegionListComponent } from './regions/region-list/region-list.component';
 import { RegionCreateComponent } from './regions/region-create/region-create.component';
+import { ClientTypeListComponent } from './client-types/client-type-list/client-type-list.component';
+import { ClientTypeCreateComponent } from './client-types/client-type-create/client-type-create.component';
+import { PropertyTypeListComponent } from './property-types/property-type-list/property-type-list.component';
+import { PropertyTypeCreateComponent } from './property-types/property-type-create/property-type-create.component';
+import { CustomerTypeListComponent } from './customer-types/customer-type-list/customer-type-list.component';
+import { CustomerTypeCreateComponent } from './customer-types/customer-type-create/customer-type-create.component';
+import { ClientPaymentsComponent } from './client-payments/client-payments.component';
 
 const routes: Routes = [
   {
@@ -77,11 +84,22 @@ const routes: Routes = [
 
       { path: 'customer-payments', component: CustomerPaymentsComponent, canActivate: [DashboardGuard]},
 
+      { path: 'client-payments', component: ClientPaymentsComponent, canActivate: [DashboardGuard] },
+
       { path: 'real-estate-agents/create', component: RealEstateAgentsCreateComponent, canActivate: [DashboardGuard]},
       { path: 'real-estate-agents', component: RealEstateAgentsListComponent, canActivate: [DashboardGuard]},
 
       { path: 'regions', component: RegionListComponent, canActivate: [DashboardGuard]},
       { path: 'regions/create', component: RegionCreateComponent, canActivate: [DashboardGuard]},
+
+      { path: 'property-types', component: PropertyTypeListComponent, canActivate: [DashboardGuard] },
+      { path: 'property-types/create', component: PropertyTypeCreateComponent, canActivate: [DashboardGuard] },
+
+      { path: 'client-types', component: ClientTypeListComponent, canActivate: [DashboardGuard]},
+      { path: 'client-types/create', component: ClientTypeCreateComponent, canActivate: [DashboardGuard]},
+
+      { path: 'customer-types', component: CustomerTypeListComponent, canActivate: [DashboardGuard] },
+      { path: 'customer-types/create', component: CustomerTypeCreateComponent, canActivate: [DashboardGuard] },
 
       {
         path: '',
