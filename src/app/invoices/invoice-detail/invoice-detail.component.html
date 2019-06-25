@@ -55,6 +55,9 @@
             <td>
               <div *ngIf="customerPaymentSchedule">
                 Rent from {{ customerPaymentSchedule.start_date | date }} to {{ customerPaymentSchedule.end_date | date }}
+                <span *ngIf="customerContract"> 
+                  for room(s) <span *ngFor="let room of customerContract.rooms">{{ room.room.number }}, </span>
+                </span>
               </div>
             </td>
             <td>
