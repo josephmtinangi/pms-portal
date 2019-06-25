@@ -26,6 +26,8 @@ import { PropertyDetailComponent } from './properties/property-detail/property-d
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
 import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
 import { InvoiceDetailComponent } from './invoices/invoice-detail/invoice-detail.component';
+import { RegionListComponent } from './regions/region-list/region-list.component';
+import { RegionCreateComponent } from './regions/region-create/region-create.component';
 
 const routes: Routes = [
   {
@@ -77,6 +79,9 @@ const routes: Routes = [
 
       { path: 'real-estate-agents/create', component: RealEstateAgentsCreateComponent, canActivate: [DashboardGuard]},
       { path: 'real-estate-agents', component: RealEstateAgentsListComponent, canActivate: [DashboardGuard]},
+
+      { path: 'regions', component: RegionListComponent, canActivate: [DashboardGuard]},
+      { path: 'regions/create', component: RegionCreateComponent, canActivate: [DashboardGuard]},
 
       {
         path: '',

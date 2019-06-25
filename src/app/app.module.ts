@@ -33,6 +33,8 @@ import { PropertyDetailComponent } from './properties/property-detail/property-d
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
 import { InvoiceDetailComponent } from './invoices/invoice-detail/invoice-detail.component';
 import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.component';
+import { RegionListComponent } from './regions/region-list/region-list.component';
+import { RegionCreateComponent } from './regions/region-create/region-create.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { InvoiceListComponent } from './invoices/invoice-list/invoice-list.compo
     PropertyDetailComponent,
     ClientDetailComponent,
     InvoiceDetailComponent,
-    InvoiceListComponent
+    InvoiceListComponent,
+    RegionListComponent,
+    RegionCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Regions</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table *ngIf="regions.length > 0" class="table table-bordered">
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Name</th>
+              <th>State</th>
+              <th>Added</th>
+            </tr>
+            <tr *ngFor="let region of regions">
+              <td>{{ region.id }}</td>
+              <td>{{ region.name }}</td>
+              <td>{{ region.state }}</td>
+              <td>{{ region.created_at | date }}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <a routerLink="/regions/create" class="btn btn-primary">Add</a> 
+    </div>
+  </div>
