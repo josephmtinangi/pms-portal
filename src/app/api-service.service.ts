@@ -6,6 +6,7 @@ import { Property } from './_models/property.model';
 import { RealEstateAgent } from './_models/real_estate_agent.model';
 import { Lease } from './_models/lease.model';
 import { Invoice } from './_models/invoice.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ import { Invoice } from './_models/invoice.model';
 export class ApiServiceService {
 
   // local
+  WEB_URL = 'http://localhost:8000';
   API_URL = 'http://localhost:8000/api';
   // testing
   // API_URL = 'https://hidden-island-92023.herokuapp.com/api';
@@ -171,4 +173,10 @@ export class ApiServiceService {
   getVillages(){
     return this.httpClient.get(this.API_URL + '/villages');
   }
+
+  // Download Invoice
+  downloadInvoice(id: number): Observable<Blob> {
+    // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
+    return this.httpClient.get(this.WEB_URL + '/invoice/' + id, { responseType: 'blob' });
+  }  
 }

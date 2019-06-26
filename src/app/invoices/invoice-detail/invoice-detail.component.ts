@@ -35,4 +35,10 @@ export class InvoiceDetailComponent implements OnInit {
     });
   }
 
+  download(id: number) {
+    this.apiService.downloadInvoice(id).subscribe((res: any) => {
+      var newBlob = new Blob([res], { type: "application/pdf" });
+    });
+  }
+
 }

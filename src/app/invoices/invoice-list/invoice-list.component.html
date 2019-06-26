@@ -12,7 +12,8 @@
             <th>Number</th>
             <th>Status</th>
             <th>Generated</th>
-            <th>Options</th>
+            <th>View</th>
+            <th>Download</th>
           </tr>
           <tr *ngFor="let invoice of invoices">
             <td>{{ invoice.id }}</td>
@@ -23,7 +24,10 @@
             </td>
             <td>{{ invoice.created_at | date }}</td>
             <td>
-              <a routerLink="/invoices/{{ invoice.id }}"><div class="fa fa-eye"></div></a>
+              <a routerLink="/invoices/{{ invoice.id }}"><i class="fa fa-eye"></i></a>
+            </td>
+            <td>
+              <a *ngIf="invoice.path" (click)="download(invoice.id)"><i class="fa fa-download"></i></a>
             </td>
           </tr>
         </table>
