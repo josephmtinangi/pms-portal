@@ -1,3 +1,38 @@
-<p>
-  client-payments works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Client Payments</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table *ngIf="clientPayments.length > 0" class="table table-bordered">
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Transaction Date</th>
+            <th>Amount (TSH)</th>
+            <th>Amount Type</th>
+            <th>Transaction Reference</th>
+            <th>Transaction Date</th>
+            <th>Receipt Number</th>
+            <th>Payer Name</th>
+            <th>Payment Description</th>
+          </tr>
+          <tr *ngFor="let clientPayment of clientPayments">
+            <td>{{ clientPayment.id }}</td>
+            <td>{{ clientPayment.transaction_date }}</td>
+            <td>{{ clientPayment.amount | number }}</td>
+            <td>{{ clientPayment.amount_type }}</td>
+            <td>{{ clientPayment.transaction_reference }}</td>
+            <td>{{ clientPayment.transaction_date }}</td>
+            <td>{{ clientPayment.receipt_number }}</td>
+            <td>{{ clientPayment.payer_name }}</td>
+            <td>{{ clientPayment.payment_description }}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->   
+  </div>
+</div>
