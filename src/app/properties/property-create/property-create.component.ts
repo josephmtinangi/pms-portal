@@ -33,6 +33,7 @@ export class PropertyCreateComponent implements OnInit {
     this.propertyForm = this.formBuilder.group({
       name: [''],
       property_type_id: [''],
+      commision: [''],
       floors: [''],
       client_id: [''],
       physical_address: [''],
