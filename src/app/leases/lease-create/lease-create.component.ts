@@ -15,6 +15,7 @@ export class LeaseCreateComponent implements OnInit {
   leaseForm: FormGroup;
   submitted: boolean = false;
   success: boolean = false;
+  loadRooms: boolean = false;
   errorMessage: string = null;
 
   customers: Array<Customer> = [];
@@ -36,20 +37,23 @@ export class LeaseCreateComponent implements OnInit {
       rooms: new FormArray([]),
     });
 
-    this.addCheckboxes();
+    // this.addCheckboxes();
 
     this.getAllCustomers();
     this.getAllProperties();
   }
 
-  private addCheckboxes() {
-    this.apiService.getPropertyRooms(1).subscribe((res: any) => {
+  addCheckboxes() {
+    this.loadRooms = true;
+    this.apiService.getPropertyRooms(this.leaseForm.value.property_id).subscribe((res: any) => {
       this.rooms = res.data;
 
       this.rooms.map((r, i) => {
         const control = new FormControl(); // if first item set to true, else false
         (this.leaseForm.controls.rooms as FormArray).push(control);
-      });      
+      });
+      
+      this.loadRooms = false;
     });
   }  
 
