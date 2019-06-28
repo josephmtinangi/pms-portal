@@ -1,0 +1,82 @@
+<div *ngIf="customer" class="row">
+  <div class="col-sm-8">
+    <div class="alert alert-success" *ngIf="success">Success</div>
+    <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Edit customer</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" [formGroup]="customerForm" (ngSubmit)="update()">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="first_name" class="col-sm-2 control-label">First name</label>
+              <div class="col-sm-10">
+                <input type="text" formControlName="first_name" class="form-control" id="first_name" placeholder="First name">
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="middle_name" class="col-sm-2 control-label">Middle name</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="middle_name" class="form-control" id="middle_name" placeholder="Middle name">
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="last_name" class="col-sm-2 control-label">Last name</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="last_name" class="form-control" id="last_name" placeholder="Last name">
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="customer_type_id" class="col-sm-2 control-label">Type</label>
+                <div class="col-sm-10">
+                  <select class="form-control" formControlName="customer_type_id">
+                      <option value="" disabled>-Select-</option>
+                      <option *ngFor="let customer_type of customer_types" [ngValue]="customer_type.id">{{ customer_type.name }}</option>
+                    </select>                  
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="phone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-10">
+                  <input type="tel" formControlName="phone" class="form-control" id="phone" placeholder="Phone">
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="tin" class="col-sm-2 control-label">TIN</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="tin" class="form-control" id="tin" placeholder="TIN">
+                </div>
+            </div>             
+            <div class="form-group">
+                <label for="postal_address" class="col-sm-2 control-label">Postal Address</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="postal_address" class="form-control" id="postal_address" placeholder="Postal Address">
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="physical_address" class="col-sm-2 control-label">Physical Address</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="physical_address" class="form-control" id="physical_address" placeholder="Physical Address">
+                </div>
+            </div>                          
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" *ngIf="!submitted" class="btn btn-info pull-right">Update</button>
+            <button type="submit" *ngIf="submitted" class="btn btn-info pull-right"><i class="fa fa-spinner fa-spin"></i> Sending...</button>
+          </div>
+          <!-- /.box-footer -->
+        </form>
+      </div>
+      <!-- /.box -->    
+  </div>
+</div>

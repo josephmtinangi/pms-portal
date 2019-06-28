@@ -17,7 +17,9 @@
               <th>TIN</th>
               <th>Postal Address</th>
               <th>Physical Address</th>
-              <th>Options</th>
+              <th>View</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
             <tr *ngFor="let customer of customers">
               <td>{{ customer.id }}</td>
@@ -31,6 +33,12 @@
               <td>{{ customer.physical_address }}</td>
               <td>
                 <a routerLink="/customers/{{customer.id}}"><i class="fa fa-eye"></i></a>
+              </td>
+              <td>
+                <a routerLink="/customers/{{customer.id}}/edit"><i class="fa fa-edit"></i></a>
+              </td>
+              <td>
+                
               </td>
             </tr>
           </table>

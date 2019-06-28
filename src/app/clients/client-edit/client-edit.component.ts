@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ApiServiceService } from 'src/app/api-service.service';
 import { ClientType } from 'src/app/_models/client_type.model';
+import { ApiServiceService } from 'src/app/api-service.service';
 
 @Component({
-  selector: 'app-client-create',
-  templateUrl: './client-create.component.html',
-  styleUrls: ['./client-create.component.scss']
+  selector: 'app-client-edit',
+  templateUrl: './client-edit.component.html',
+  styleUrls: ['./client-edit.component.scss']
 })
-export class ClientCreateComponent implements OnInit {
+export class ClientEditComponent implements OnInit {
 
   clientForm: FormGroup;
   client_types: Array<ClientType> = [];
@@ -19,7 +19,7 @@ export class ClientCreateComponent implements OnInit {
   constructor(
     private apiService: ApiServiceService,
     private formBuilder: FormBuilder
-  ) { 
+  ) {
     this.clientForm = this.formBuilder.group({
       first_name: [''],
       middle_name: [''],
@@ -34,32 +34,10 @@ export class ClientCreateComponent implements OnInit {
       account_name: [''],
       account_number: ['']
     });
-  }
+   }
 
   ngOnInit() {
     this.getClientTypes();
-  }
-
-  store(){
-    this.submitted = true;
-
-    if(this.clientForm.invalid){
-      return;
-    }
-
-    this.apiService.storeClient(this.clientForm.value).subscribe((res: any) => {
-      if(res.status == 200){
-        this.success = true;
-        this.submitted = false;
-        this.clientForm.reset();
-      }
-    },
-    error => {
-      this.success = false;
-      this.submitted = false;
-      this.errorMessage = error.message;
-    });
-
   }
 
   getClientTypes(){

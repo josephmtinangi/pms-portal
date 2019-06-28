@@ -42,6 +42,9 @@ import { PropertyTypeCreateComponent } from './property-types/property-type-crea
 import { CustomerTypeListComponent } from './customer-types/customer-type-list/customer-type-list.component';
 import { CustomerTypeCreateComponent } from './customer-types/customer-type-create/customer-type-create.component';
 import { ClientPaymentsComponent } from './client-payments/client-payments.component';
+import { PropertyEditComponent } from './properties/property-edit/property-edit.component';
+import { ClientEditComponent } from './clients/client-edit/client-edit.component';
+import { CustomerEditComponent } from './customers/customer-edit/customer-edit.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +82,10 @@ import { ClientPaymentsComponent } from './client-payments/client-payments.compo
     PropertyTypeCreateComponent,
     CustomerTypeListComponent,
     CustomerTypeCreateComponent,
-    ClientPaymentsComponent
+    ClientPaymentsComponent,
+    PropertyEditComponent,
+    ClientEditComponent,
+    CustomerEditComponent
   ],
   imports: [
     BrowserModule,

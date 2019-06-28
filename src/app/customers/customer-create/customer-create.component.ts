@@ -34,9 +34,7 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.apiService.getCustomerTypes().subscribe((res: any) => {
-      this.customer_types = res.data;
-    })
+    this.getCustomerTypes();
   }
 
   store(){
@@ -60,5 +58,11 @@ export class CustomerCreateComponent implements OnInit {
         this.errorMessage = 'Something went wrong! Please try again.';
       }
     })
+  }
+
+  getCustomerTypes(){
+    this.apiService.getCustomerTypes().subscribe((res: any) => {
+      this.customer_types = res.data;
+    })    
   }
 }

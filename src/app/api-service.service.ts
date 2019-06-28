@@ -53,6 +53,14 @@ export class ApiServiceService {
     return this.httpClient.post(this.API_URL + '/clients', client);
   }
 
+  updateClient(id: number, client: Client) {
+    return this.httpClient.patch(this.API_URL + '/clients/' + id, client)
+  }
+
+  destroyClient(id: number) {
+    return this.httpClient.delete(this.API_URL + '/clients');
+  }
+
   // Property types
   getPropertyTypes() {
     return this.httpClient.get(this.API_URL + '/property-types');
@@ -79,6 +87,14 @@ export class ApiServiceService {
     return this.httpClient.post(this.API_URL + '/properties', property);
   }
 
+  updateProperty(id: number, property: Property) {
+    return this.httpClient.patch(this.API_URL + '/properties/' + id, property);
+  }
+
+  destoryProperty(id: number){
+    return this.httpClient.delete(this.API_URL + '/properties/' + id);
+  }
+
   // Customer Types
   getCustomerTypes(){
     return this.httpClient.get(this.API_URL + '/customer-types');
@@ -99,6 +115,14 @@ export class ApiServiceService {
 
   storeCustomer(customer: Customer) {
     return this.httpClient.post(this.API_URL + '/customers', customer);
+  }
+
+  updateCustomer(id: number, customer: Customer) {
+    return this.httpClient.patch(this.API_URL + '/customers/' + id + '', customer);
+  }
+
+  destroyCustomer(id: number) {
+    return this.httpClient.delete(this.API_URL + '/customers/' + id);
   }
 
   // Customer Payments

@@ -35,6 +35,9 @@ import { PropertyTypeCreateComponent } from './property-types/property-type-crea
 import { CustomerTypeListComponent } from './customer-types/customer-type-list/customer-type-list.component';
 import { CustomerTypeCreateComponent } from './customer-types/customer-type-create/customer-type-create.component';
 import { ClientPaymentsComponent } from './client-payments/client-payments.component';
+import { PropertyEditComponent } from './properties/property-edit/property-edit.component';
+import { ClientEditComponent } from './clients/client-edit/client-edit.component';
+import { CustomerEditComponent } from './customers/customer-edit/customer-edit.component';
 
 const routes: Routes = [
   {
@@ -66,14 +69,17 @@ const routes: Routes = [
       { path: 'clients', component: ClientListComponent, canActivate: [DashboardGuard]},
       { path: 'clients/create', component: ClientCreateComponent, canActivate: [DashboardGuard]},
       { path: 'clients/:id', component: ClientDetailComponent, canActivate: [DashboardGuard] },
+      { path: 'clients/:id/edit', component: ClientEditComponent, canActivate: [DashboardGuard] },
       
       { path: 'properties', component: PropertyListComponent, canActivate: [DashboardGuard] },
       { path: 'properties/create', component: PropertyCreateComponent, canActivate: [DashboardGuard]},
       { path: 'properties/:id', component: PropertyDetailComponent, canActivate: [DashboardGuard] },
+      { path: 'properties/:id/edit', component: PropertyEditComponent, canActivate: [DashboardGuard] },
 
       { path: 'customers', component: CustomerListComponent, canActivate: [DashboardGuard] },
       { path: 'customers/create', component: CustomerCreateComponent, canActivate: [DashboardGuard] },
       { path: 'customers/:id', component: CustomerDetailComponent, canActivate: [DashboardGuard] },
+      { path: 'customers/:id/edit', component: CustomerEditComponent, canActivate: [DashboardGuard] },
 
       { path: 'leases/create', component: LeaseCreateComponent, canActivate: [DashboardGuard] },
       { path: 'leases', component: LeaseListComponent, canActivate: [DashboardGuard] },
