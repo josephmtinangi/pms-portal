@@ -44,6 +44,13 @@
                   Phone: {{ customer.phone }}<br>
                   Email: {{ customer.email }}
               </div>
+              <div *ngIf="client">
+                  {{ client.first_name }} {{ client.middle_name }} {{ client.last_name }}<br>
+                  {{ client.postal_address }}<br>
+                  {{ client.physical_address }}<br>
+                  Phone: {{ client.phone }}<br>
+                  Email: {{ client.email }}
+              </div>              
             </td>
           </tr>
           <tr></tr>
@@ -53,16 +60,19 @@
           </tr>
           <tr>
             <td>
-              <div *ngIf="customerPaymentSchedule">
-                Rent from {{ customerPaymentSchedule.start_date | date }} to {{ customerPaymentSchedule.end_date | date }}
-                <span *ngIf="customerContract"> 
-                  for room(s) <span *ngFor="let room of customerContract.rooms">{{ room.room.number }}, </span>
+              <div *ngIf="schedule && customer">
+                Rent from {{ schedule.start_date | date }} to {{ schedule.end_date | date }}
+                <span *ngIf="contract && customer"> 
+                  for room(s) <span *ngFor="let room of contract.rooms">{{ room.room.number }}, </span>
                 </span>
+              </div>
+              <div *ngIf="schedule && client">
+                
               </div>
             </td>
             <td>
-              <div *ngIf="customerPaymentSchedule">
-                {{ customerPaymentSchedule.amount_to_be_paid | currency:'TZS' }}
+              <div *ngIf="schedule">
+                {{ schedule.amount_to_be_paid | currency:'TZS' }}
               </div>
             </td>
           </tr>
@@ -72,24 +82,24 @@
           <tr>
             <th>TOTAL</th>
             <td>
-              <div *ngIf="customerPaymentSchedule">
-                {{ customerPaymentSchedule.amount_to_be_paid | currency:'TZS' }}
+              <div *ngIf="schedule">
+                {{ schedule.amount_to_be_paid | currency:'TZS' }}
               </div>
             </td>
           </tr>
           <tr>
             <th>AMOUNT DUE</th>
             <th>
-              <div *ngIf="customerPaymentSchedule">
-                {{ customerPaymentSchedule.amount_to_be_paid | currency:'TZS' }}
+              <div *ngIf="schedule">
+                {{ schedule.amount_to_be_paid | currency:'TZS' }}
               </div>
             </th>
           </tr>
           <tr>
             <th>CONTROL NUMBER</th>
             <td>
-              <div *ngIf="customerPaymentSchedule">
-                  {{ customerPaymentSchedule.control_number }}
+              <div *ngIf="schedule">
+                  {{ schedule.control_number }}
               </div>
             </td>
           </tr>
