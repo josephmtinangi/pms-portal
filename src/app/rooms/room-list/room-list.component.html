@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Rooms</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table *ngIf="rooms.length > 0" class="table table-bordered">
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Property</th>
+            <th>Number</th>
+            <th>Floor</th>
+            <th>Size</th>
+            <th>Status</th>
+            <th>Added</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <tr *ngFor="let room of rooms">
+            <td>{{ room.id }}</td>
+            <td>{{ room.property.name }}</td>
+            <td>{{ room.number }}</td>
+            <td>{{ room.floor }}</td>
+            <td>{{ room.size }} {{ room.metrics }}</td>
+            <td>{{ room.status }}</td>
+            <td>{{ room.created_at | date }}</td>
+            <td>
+              <a routerLink="/rooms/{{ room.id }}"><div class="fa fa-eye"></div></a>
+            </td>
+            <td>
+              <a routerLink="/rooms/{{ room.id }}/edit"><div class="fa fa-edit"></div></a>
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+    <a routerLink="/rooms/create" class="btn btn-primary">Add</a> 
+  </div>
+</div>

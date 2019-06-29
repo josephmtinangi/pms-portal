@@ -38,6 +38,8 @@ import { ClientPaymentsComponent } from './client-payments/client-payments.compo
 import { PropertyEditComponent } from './properties/property-edit/property-edit.component';
 import { ClientEditComponent } from './clients/client-edit/client-edit.component';
 import { CustomerEditComponent } from './customers/customer-edit/customer-edit.component';
+import { RoomListComponent } from './rooms/room-list/room-list.component';
+import { RoomCreateComponent } from './rooms/room-create/room-create.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,9 @@ const routes: Routes = [
       { path: 'properties/create', component: PropertyCreateComponent, canActivate: [DashboardGuard]},
       { path: 'properties/:id', component: PropertyDetailComponent, canActivate: [DashboardGuard] },
       { path: 'properties/:id/edit', component: PropertyEditComponent, canActivate: [DashboardGuard] },
+
+      { path: 'rooms', component: RoomListComponent, canActivate: [DashboardGuard] },
+      { path: 'rooms/create', component: RoomCreateComponent, canActivate: [DashboardGuard] },
 
       { path: 'customers', component: CustomerListComponent, canActivate: [DashboardGuard] },
       { path: 'customers/create', component: CustomerCreateComponent, canActivate: [DashboardGuard] },

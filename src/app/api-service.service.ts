@@ -7,6 +7,7 @@ import { RealEstateAgent } from './_models/real_estate_agent.model';
 import { Lease } from './_models/lease.model';
 import { Invoice } from './_models/invoice.model';
 import { Observable } from 'rxjs';
+import { Room } from './_models/room.models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ import { Observable } from 'rxjs';
 export class ApiServiceService {
 
   // local
-  WEB_URL = 'http://localhost:8000';
-  API_URL = 'http://localhost:8000/api';
+  WEB_URL = 'http://localhost:8001';
+  API_URL = 'http://localhost:8001/api';
   // testing
   // API_URL = 'https://hidden-island-92023.herokuapp.com/api';
 
@@ -66,6 +67,11 @@ export class ApiServiceService {
     return this.httpClient.get(this.API_URL + '/property-types');
   }
 
+  // Payment modes
+  getPaymentModes() {
+    return this.httpClient.get(this.API_URL + '/payment-modes');
+  }
+
   // Properties
   getProperties(){
     return this.httpClient.get(this.API_URL + '/properties');
@@ -93,6 +99,27 @@ export class ApiServiceService {
 
   destoryProperty(id: number){
     return this.httpClient.delete(this.API_URL + '/properties/' + id);
+  }
+
+  // Rooms
+  getRooms() {
+    return this.httpClient.get(this.API_URL + '/rooms');
+  }
+
+  getRoom(id: number) {
+    return this.httpClient.get(this.API_URL + '/rooms/' + id);
+  }
+
+  storeRoom(room: Room) {
+    return this.httpClient.post(this.API_URL + '/rooms', room);
+  }
+
+  updateRoom(id: number, room: Room) {
+    return this.httpClient.patch(this.API_URL + '/rooms/' + id, room);
+  }
+
+  destoryRoom(id: number){
+    return this.httpClient.delete(this.API_URL + '/rooms/' + id);
   }
 
   // Customer Types

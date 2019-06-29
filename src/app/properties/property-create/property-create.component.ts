@@ -7,6 +7,7 @@ import { Region } from 'src/app/_models/region.model';
 import { District } from 'src/app/_models/district.model';
 import { Ward } from 'src/app/_models/ward.model';
 import { Village } from 'src/app/_models/village.model';
+import { PaymentMode } from 'src/app/_models/payment_mode.model';
 
 @Component({
   selector: 'app-property-create',
@@ -17,6 +18,7 @@ export class PropertyCreateComponent implements OnInit {
 
   propertyForm: FormGroup;
   property_types: Array<PropertyType> = [];
+  payment_modes: Array<PaymentMode> = [];
   clients: Array<Client> = [];
   regions: Array<Region> = [];
   districts: Array<District> = [];
@@ -33,6 +35,8 @@ export class PropertyCreateComponent implements OnInit {
     this.propertyForm = this.formBuilder.group({
       name: [''],
       property_type_id: [''],
+      payment_mode_id: [''],
+      amount: [''],
       commision: [''],
       floors: [''],
       client_id: [''],
@@ -43,6 +47,7 @@ export class PropertyCreateComponent implements OnInit {
 
   ngOnInit() {
     this.getPropertyTypes();
+    this.getPaymentModes();
     this.getAllClients();
     this.getRegions();
   }
@@ -67,6 +72,12 @@ export class PropertyCreateComponent implements OnInit {
       if(error.status == 500){
         this.errorMessage = 'Something went wrong! Please try again.';
       }
+    })
+  }
+
+  getPaymentModes() {
+    return this.apiService.getPaymentModes().subscribe((res: any) => {
+      this.payment_modes = res.data;
     })
   }
 

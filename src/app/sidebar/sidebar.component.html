@@ -14,6 +14,17 @@
       </ul>
   </li>
   <li class="treeview">
+      <a href="#"><i class="fa fa-square"></i> <span>Rooms</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+      </a>
+      <ul class="treeview-menu">
+        <li><a [routerLink]="['/rooms']">List</a></li>
+        <li><a [routerLink]="['/rooms/create']">Create</a></li>
+      </ul>
+  </li>  
+  <li class="treeview">
       <a href="#"><i class="fa fa-black-tie"></i> <span>Clients</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
