@@ -37,7 +37,6 @@ export class PropertyCreateComponent implements OnInit {
       property_type_id: [''],
       payment_mode_id: [''],
       amount: [''],
-      commision: [''],
       floors: [''],
       client_id: [''],
       physical_address: [''],
@@ -69,9 +68,7 @@ export class PropertyCreateComponent implements OnInit {
     error => {
       this.success = false;
       this.submitted = false;
-      if(error.status == 500){
-        this.errorMessage = 'Something went wrong! Please try again.';
-      }
+      this.errorMessage = error;
     })
   }
 

@@ -105,6 +105,7 @@
               <th>Start date</th>
               <th>End date</th>
               <th>Expiry date</th>
+              <th>Status</th>
               <th>Invoice(s)</th>
             </tr>
             <tr *ngFor="let control_number of lease.control_numbers">
@@ -114,6 +115,11 @@
               <td>{{ control_number.start_date | date }}</td>
               <td>{{ control_number.end_date | date }}</td>
               <td>{{ control_number.expiry_date | date }}</td>
+              <td>
+                <strong *ngIf="control_number.paid_at" class="text-success">PAID</strong>
+                <span *ngIf="control_number.paid_at">({{ control_number.paid_at }})</span>
+                <strong *ngIf="!control_number.paid_at" class="text-danger">NOT PAID</strong>
+              </td>
               <td>
                 <a *ngFor="let invoice of control_number.invoices" routerLink="/invoices/{{ invoice.id }}"><div class="fa fa-eye"></div></a>
               </td>
