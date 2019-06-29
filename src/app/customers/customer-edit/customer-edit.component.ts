@@ -26,7 +26,7 @@ export class CustomerEditComponent implements OnInit {
     private formBuilder: FormBuilder
     ) { 
       this.customerForm = this.formBuilder.group({
-        first_name: [this.customer.first_name],
+        first_name: [''],
         middle_name: [''],
         last_name: [''],
         phone: [''],
@@ -73,7 +73,17 @@ export class CustomerEditComponent implements OnInit {
   getCustomer(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.apiService.getCustomer(id).subscribe((res: any) => {
-      this.customer = res.data;
+      this.customerForm.setValue({
+        first_name: res.data.first_name,
+        middle_name: res.data.middle_name,
+        last_name: res.data.last_name,
+        phone: res.data.phone,
+        email: res.data.email,
+        tin: res.data.tin,
+        customer_type_id: res.data.customer_type_id,
+        postal_address: res.data.postal_address,
+        physical_address: res.data.physical_address
+      })
     });
   }  
 

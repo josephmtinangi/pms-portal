@@ -7,6 +7,7 @@ import { District } from 'src/app/_models/district.model';
 import { Ward } from 'src/app/_models/ward.model';
 import { Village } from 'src/app/_models/village.model';
 import { ApiServiceService } from 'src/app/api-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-property-edit',
@@ -28,29 +29,53 @@ export class PropertyEditComponent implements OnInit {
 
   constructor(
     private apiService: ApiServiceService,
-    private formBuilder: FormBuilder    
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute    
   ) { 
     this.propertyForm = this.formBuilder.group({
       name: [''],
       property_type_id: [''],
-      commision: [''],
+      payment_mode_id: [''],
+      amount: [''],
+      start_date: [''],
+      end_date: [''],
       floors: [''],
       client_id: [''],
       physical_address: [''],
-      village_id: [''],
+      village_id: ['']
     });    
   }
 
   ngOnInit() {
+    this.getProperty();    
     this.getPropertyTypes();
     this.getAllClients();
-    this.getRegions();    
+    this.getRegions();
   }
 
   getPropertyTypes(){
     this.apiService.getPropertyTypes().subscribe((res: any) => {
       this.property_types = res.data;
     });
+  }
+
+  getProperty():void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.apiService.getProperty(id).subscribe((res: any) => {
+      
+      this.propertyForm.setValue({
+        name: res.data.name,
+        property_type_id: res.data.property_type_id,
+        payment_mode_id: res.data.property_payment_mode.payment_mode_id,
+        amount: res.data.property_payment_mode.amount,
+        start_date: res.data.property_payment_mode.start_date,
+        end_date: res.data.property_payment_mode.end_date,
+        floors: res.data.floors,
+        client_id: res.data.client_id,
+        physical_address: res.data.physical_address,
+        village_id: res.data.village_id,
+      });
+    })
   }
 
   getAllClients() {

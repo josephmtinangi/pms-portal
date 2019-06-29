@@ -42,7 +42,7 @@ export class PropertyCreateComponent implements OnInit {
       floors: [''],
       client_id: [''],
       physical_address: [''],
-      village_id: [''],
+      village_id: ['']
     });
   }
 
