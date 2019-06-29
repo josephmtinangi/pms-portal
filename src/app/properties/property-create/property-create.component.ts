@@ -37,6 +37,8 @@ export class PropertyCreateComponent implements OnInit {
       property_type_id: [''],
       payment_mode_id: [''],
       amount: [''],
+      start_date: [''],
+      end_date: [''],
       floors: [''],
       client_id: [''],
       physical_address: [''],
