@@ -26,9 +26,13 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.checkIfAuthenticated();
+  }
+
+  checkIfAuthenticated() {
     if(this.authService.isAuthenticated()){
       this.router.navigate(['/']);
-    }
+    }    
   }
 
   login() {

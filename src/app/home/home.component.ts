@@ -13,9 +13,13 @@ export class HomeComponent implements OnInit {
   constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
+    this.getDashboardData();
+  }
+
+  getDashboardData():void {
     this.apiService.getDashboardData().subscribe((res: any) => {
       this.dashboard = res.data;
-    });
+    });    
   }
 
 }
