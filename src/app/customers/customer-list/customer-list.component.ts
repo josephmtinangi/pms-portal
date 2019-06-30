@@ -16,6 +16,10 @@ export class CustomerListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getCustomers()
+  }
+
+  getCustomers():void {
     this.apiService.getCustomers().subscribe((res: any) => {
       this.customers = res.data.data;
     },
