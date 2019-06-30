@@ -8,6 +8,7 @@ import { Ward } from 'src/app/_models/ward.model';
 import { Village } from 'src/app/_models/village.model';
 import { ApiServiceService } from 'src/app/api-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { PaymentMode } from 'src/app/_models/payment_mode.model';
 
 @Component({
   selector: 'app-property-edit',
@@ -18,6 +19,7 @@ export class PropertyEditComponent implements OnInit {
 
   propertyForm: FormGroup;
   property_types: Array<PropertyType> = [];
+  payment_modes: Array<PaymentMode> = [];
   clients: Array<Client> = [];
   regions: Array<Region> = [];
   districts: Array<District> = [];
@@ -46,12 +48,19 @@ export class PropertyEditComponent implements OnInit {
     });    
   }
 
-  ngOnInit() {
-    this.getProperty();    
+  ngOnInit() {    
     this.getPropertyTypes();
+    this.getPaymentModes();
     this.getAllClients();
     this.getRegions();
+    this.getProperty();
   }
+
+  getPaymentModes() {
+    return this.apiService.getPaymentModes().subscribe((res: any) => {
+      this.payment_modes = res.data;
+    })
+  }  
 
   getPropertyTypes(){
     this.apiService.getPropertyTypes().subscribe((res: any) => {
