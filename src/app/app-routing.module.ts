@@ -41,6 +41,12 @@ import { CustomerEditComponent } from './customers/customer-edit/customer-edit.c
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { RoomCreateComponent } from './rooms/room-create/room-create.component';
 import { AccountListComponent } from './accounts/account-list/account-list.component';
+import { DistrictListComponent } from './districts/district-list/district-list.component';
+import { DistrictCreateComponent } from './districts/district-create/district-create.component';
+import { WardListComponent } from './wards/ward-list/ward-list.component';
+import { WardCreateComponent } from './wards/ward-create/ward-create.component';
+import { VillageListComponent } from './villages/village-list/village-list.component';
+import { VillageCreateComponent } from './villages/village-create/village-create.component';
 
 const routes: Routes = [
   {
@@ -103,8 +109,17 @@ const routes: Routes = [
 
       { path: 'accounts', component: AccountListComponent, canActivate: [DashboardGuard] },
 
-      { path: 'regions', component: RegionListComponent, canActivate: [DashboardGuard]},
-      { path: 'regions/create', component: RegionCreateComponent, canActivate: [DashboardGuard]},
+      { path: 'regions', component: RegionListComponent, canActivate: [DashboardGuard] },
+      { path: 'regions/create', component: RegionCreateComponent, canActivate: [DashboardGuard] },
+
+      { path: 'districts', component: DistrictListComponent, canActivate: [DashboardGuard] },
+      { path: 'districts/create', component: DistrictCreateComponent, canActivate: [DashboardGuard] },
+
+      { path: 'wards', component: WardListComponent, canActivate: [DashboardGuard] },
+      { path: 'wards/create', component: WardCreateComponent, canActivate: [DashboardGuard] },
+
+      { path: 'villages', component: VillageListComponent, canActivate: [DashboardGuard] },
+      { path: 'villages/create', component: VillageCreateComponent, canActivate: [DashboardGuard] },
 
       { path: 'property-types', component: PropertyTypeListComponent, canActivate: [DashboardGuard] },
       { path: 'property-types/create', component: PropertyTypeCreateComponent, canActivate: [DashboardGuard] },

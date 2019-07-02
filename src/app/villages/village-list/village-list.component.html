@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Villages</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table *ngIf="villages.length > 0" class="table table-bordered">
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Name</th>
+              <th>Ward</th>
+              <th>Added</th>
+            </tr>
+            <tr *ngFor="let village of villages">
+              <td>{{ village.id }}</td>
+              <td>{{ village.name }}</td>
+              <td>{{ village.ward.name }}</td>
+              <td>{{ village.created_at | date }}</td>
+            </tr>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <a routerLink="/villages/create" class="btn btn-primary">Add</a> 
+    </div>
+  </div>

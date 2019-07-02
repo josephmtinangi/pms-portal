@@ -48,6 +48,12 @@ import { CustomerEditComponent } from './customers/customer-edit/customer-edit.c
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { RoomCreateComponent } from './rooms/room-create/room-create.component';
 import { AccountListComponent } from './accounts/account-list/account-list.component';
+import { DistrictListComponent } from './districts/district-list/district-list.component';
+import { DistrictCreateComponent } from './districts/district-create/district-create.component';
+import { WardListComponent } from './wards/ward-list/ward-list.component';
+import { WardCreateComponent } from './wards/ward-create/ward-create.component';
+import { VillageListComponent } from './villages/village-list/village-list.component';
+import { VillageCreateComponent } from './villages/village-create/village-create.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +97,13 @@ import { AccountListComponent } from './accounts/account-list/account-list.compo
     CustomerEditComponent,
     RoomListComponent,
     RoomCreateComponent,
-    AccountListComponent
+    AccountListComponent,
+    DistrictListComponent,
+    DistrictCreateComponent,
+    WardListComponent,
+    WardCreateComponent,
+    VillageListComponent,
+    VillageCreateComponent
   ],
   imports: [
     BrowserModule,

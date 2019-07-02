@@ -12,6 +12,9 @@ import { ClientType } from './_models/client_type.model';
 import { PropertyType } from './_models/property_type.model';
 import { CustomerType } from './_models/customer_type.model';
 import { Region } from './_models/region.model';
+import { District } from './_models/district.model';
+import { Ward } from './_models/ward.model';
+import { Village } from './_models/village.model';
 
 @Injectable({
   providedIn: 'root'
@@ -232,6 +235,10 @@ export class ApiServiceService {
     return this.httpClient.get(this.API_URL + '/districts');
   }
 
+  storeDistrict(district: District) {
+    return this.httpClient.post(this.API_URL + '/districts', district);
+  }
+
   getDistrictWards(id: number){
     return this.httpClient.get(this.API_URL + '/districts/'+ id + '/wards');
   }
@@ -241,6 +248,10 @@ export class ApiServiceService {
     return this.httpClient.get(this.API_URL + '/wards');
   }
 
+  storeWard(ward: Ward) {
+    return this.httpClient.post(this.API_URL + '/wards', ward);
+  }
+
   getWardVillages(id: number) {
     return this.httpClient.get(this.API_URL + '/wards/' + id + '/villages');
   }
@@ -248,6 +259,10 @@ export class ApiServiceService {
   // Villages
   getVillages(){
     return this.httpClient.get(this.API_URL + '/villages');
+  }
+
+  storeVillage(village: Village) {
+    return this.httpClient.post(this.API_URL + '/villages', village);
   }
 
   // Download Invoice

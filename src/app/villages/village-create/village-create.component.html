@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-sm-8">
+      <div class="alert alert-success" *ngIf="success">Success</div>
+      <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <!-- Horizontal Form -->
+      <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">Add village</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal" [formGroup]="villageForm" (ngSubmit)="store()">            
+            <div class="box-body">
+              <div class="form-group">
+                  <label for="region_id" class="col-sm-2 control-label">Region</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" (change)="getRegionDistricts($event)">
+                        <option value="" disabled>-Select-</option>
+                        <option *ngFor="let region of regions" [ngValue]="region.id">
+                          {{ region.name }}
+                        </option>
+                      </select>                  
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="district_id" class="col-sm-2 control-label">District</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" (change)="getDistrictWards($event)">
+                        <option value="" disabled>-Select-</option>
+                        <option *ngFor="let district of districts" [ngValue]="district.id">
+                          {{ district.name }}
+                        </option>
+                      </select>                  
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="ward_id" class="col-sm-2 control-label">Ward</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" formControlName="ward_id">
+                        <option value="" disabled>-Select-</option>
+                        <option *ngFor="let ward of wards" [ngValue]="ward.id">
+                          {{ ward.name }}
+                        </option>
+                      </select>                  
+                  </div>
+              </div>             
+              <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="name" class="form-control" id="name" placeholder="Name">
+                </div>
+              </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button type="submit" *ngIf="!submitted" class="btn btn-info pull-right">Submit</button>
+              <button type="submit" *ngIf="submitted" class="btn btn-info pull-right"><i class="fa fa-spinner fa-spin"></i> Sending...</button>
+            </div>
+            <!-- /.box-footer -->
+          </form>
+        </div>
+        <!-- /.box -->    
+    </div>
+  </div>
