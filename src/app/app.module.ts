@@ -47,6 +47,7 @@ import { ClientEditComponent } from './clients/client-edit/client-edit.component
 import { CustomerEditComponent } from './customers/customer-edit/customer-edit.component';
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { RoomCreateComponent } from './rooms/room-create/room-create.component';
+import { AccountListComponent } from './accounts/account-list/account-list.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { RoomCreateComponent } from './rooms/room-create/room-create.component';
     ClientEditComponent,
     CustomerEditComponent,
     RoomListComponent,
-    RoomCreateComponent
+    RoomCreateComponent,
+    AccountListComponent
   ],
   imports: [
     BrowserModule,

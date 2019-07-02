@@ -40,6 +40,7 @@ import { ClientEditComponent } from './clients/client-edit/client-edit.component
 import { CustomerEditComponent } from './customers/customer-edit/customer-edit.component';
 import { RoomListComponent } from './rooms/room-list/room-list.component';
 import { RoomCreateComponent } from './rooms/room-create/room-create.component';
+import { AccountListComponent } from './accounts/account-list/account-list.component';
 
 const routes: Routes = [
   {
@@ -99,6 +100,8 @@ const routes: Routes = [
 
       { path: 'real-estate-agents/create', component: RealEstateAgentsCreateComponent, canActivate: [DashboardGuard]},
       { path: 'real-estate-agents', component: RealEstateAgentsListComponent, canActivate: [DashboardGuard]},
+
+      { path: 'accounts', component: AccountListComponent, canActivate: [DashboardGuard] },
 
       { path: 'regions', component: RegionListComponent, canActivate: [DashboardGuard]},
       { path: 'regions/create', component: RegionCreateComponent, canActivate: [DashboardGuard]},
