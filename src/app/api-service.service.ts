@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { Room } from './_models/room.models';
 import { ClientType } from './_models/client_type.model';
 import { PropertyType } from './_models/property_type.model';
+import { CustomerType } from './_models/customer_type.model';
 
 @Injectable({
   providedIn: 'root'
@@ -135,6 +136,10 @@ export class ApiServiceService {
   // Customer Types
   getCustomerTypes(){
     return this.httpClient.get(this.API_URL + '/customer-types');
+  }
+
+  storeCustomerType(customerType: CustomerType){
+    return this.httpClient.post(this.API_URL + '/customer-types', customerType);
   }
 
   // Customers

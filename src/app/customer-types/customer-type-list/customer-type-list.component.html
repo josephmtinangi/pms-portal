@@ -1,3 +1,27 @@
-<p>
-  customer-type-list works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Customer Types</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <table *ngIf="customerTypes.length > 0" class="table table-bordered">
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+          <tr *ngFor="let customerType of customerTypes">
+            <td>{{ customerType.id }}</td>
+            <td>{{ customerType.name }}</td>
+            <td>{{ customerType.description }}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+    <a routerLink="/customer-types/create" class="btn btn-primary">Add</a> 
+  </div>
+</div>
