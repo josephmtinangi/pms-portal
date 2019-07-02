@@ -11,6 +11,7 @@ import { Room } from './_models/room.models';
 import { ClientType } from './_models/client_type.model';
 import { PropertyType } from './_models/property_type.model';
 import { CustomerType } from './_models/customer_type.model';
+import { Region } from './_models/region.model';
 
 @Injectable({
   providedIn: 'root'
@@ -216,6 +217,10 @@ export class ApiServiceService {
   // Regions
   getRegions(){
     return this.httpClient.get(this.API_URL + '/regions');
+  }
+
+  storeRegion(region: Region){
+    return this.httpClient.post(this.API_URL + '/regions', region);
   }
 
   getRegionDistricts(id: number){
