@@ -9,6 +9,7 @@ import { Invoice } from './_models/invoice.model';
 import { Observable } from 'rxjs';
 import { Room } from './_models/room.models';
 import { ClientType } from './_models/client_type.model';
+import { PropertyType } from './_models/property_type.model';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,10 @@ export class ApiServiceService {
   // Property types
   getPropertyTypes() {
     return this.httpClient.get(this.API_URL + '/property-types');
+  }
+
+  storePropertyType(propertyType: PropertyType){
+    return this.httpClient.post(this.API_URL + '/property-types', propertyType);
   }
 
   // Payment modes

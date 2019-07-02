@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PropertyType } from 'src/app/_models/property_type.model';
+import { ApiServiceService } from 'src/app/api-service.service';
 
 @Component({
   selector: 'app-property-type-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertyTypeListComponent implements OnInit {
 
-  constructor() { }
+  propertyTypes: Array<PropertyType> = [];
+
+  constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
+    this.getPropertyTypes();
+  }
+
+  getPropertyTypes(){
+    this.apiService.getPropertyTypes().subscribe((res: any) => {
+      this.propertyTypes = res.data;
+    })
   }
 
 }
