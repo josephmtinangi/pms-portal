@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from 'src/app/api-service.service';
+import { ClientType } from 'src/app/_models/client_type.model';
 
 @Component({
   selector: 'app-client-type-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientTypeListComponent implements OnInit {
 
-  constructor() { }
+  clientTypes: Array<ClientType> = [];
+
+  constructor(private apiService: ApiServiceService) { }
 
   ngOnInit() {
+    this.getClientTypes();
+  }
+
+  getClientTypes(){
+    this.apiService.getClientTypes().subscribe((res: any) => {
+      this.clientTypes = res.data;
+    })
   }
 
 }

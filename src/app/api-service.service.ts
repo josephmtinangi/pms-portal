@@ -8,6 +8,7 @@ import { Lease } from './_models/lease.model';
 import { Invoice } from './_models/invoice.model';
 import { Observable } from 'rxjs';
 import { Room } from './_models/room.models';
+import { ClientType } from './_models/client_type.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,10 @@ export class ApiServiceService {
   // Client Types
   getClientTypes(){
     return this.httpClient.get(this.API_URL + '/client-types');
+  }
+
+  storeClientType(clientType: ClientType) {
+    return this.httpClient.post(this.API_URL + '/client-types', clientType);
   }
 
   // Clients
