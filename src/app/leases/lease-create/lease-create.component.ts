@@ -32,7 +32,7 @@ export class LeaseCreateComponent implements OnInit {
       start_date: [''],
       end_date: [''],
       rent_per_month: [''],
-      payment_interval: [''],
+      payment_interval: 1,
       contract_duration: [''],
       rooms: new FormArray([]),
     });

@@ -21,7 +21,7 @@
             <tr *ngFor="let customerPayment of customerPayments">
               <td>{{ customerPayment.id }}</td>
               <td>{{ customerPayment.transaction_date }}</td>
-              <td>{{ customerPayment.amount | number }}</td>
+              <td class="text-right">{{ customerPayment.amount | number }}</td>
               <td>{{ customerPayment.amount_type }}</td>
               <td>{{ customerPayment.transaction_reference }}</td>
               <td>{{ customerPayment.transaction_channel }}</td>

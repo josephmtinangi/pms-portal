@@ -13,7 +13,7 @@
               <th>Property</th>
               <th>Start date</th>
               <th>End date</th>
-              <th>Rent per month</th>
+              <th>Rent per month (TSH)</th>
               <th>Payment interval (months)</th>
               <th>Duration (months)</th>
               <th>Entered</th>
@@ -33,7 +33,7 @@
               </td>
               <td>{{ lease.start_date | date }}</td>
               <td>{{ lease.end_date | date }}</td>
-              <td>{{ lease.rent_per_month | currency:'TZS' }}</td>
+              <td class="text-right">{{ lease.rent_per_month | number }}</td>
               <td>{{ lease.payment_interval }}</td>
               <td>{{ lease.contract_duration }}</td>
               <td>{{ lease.created_at | date }}</td>
