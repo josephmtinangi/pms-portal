@@ -54,24 +54,22 @@
   <div class="col-md-6">
     <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Accounts</h3>
+          <h3 class="box-title">Business Report</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table class="table table-bordered">
-            <tr>
-              <th style="width: 10px">#</th>
-              <th>Name</th>
-              <th>Number</th>
-              <th>Code</th>
-            </tr>
-            <tr *ngFor="let account of client.accounts">
-              <td>{{ account.id }}</td>
-              <td>{{ account.name }}</td>
-              <td>{{ account.number }}</td>
-              <td>{{ account.code }}</td>
-            </tr>
-          </table>
+          <!-- Widget: user widget style 1 -->
+          <div class="box box-widget widget-user-2">
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked">
+                <li><a href="#">Registered properties <span class="pull-right badge bg-blue">{{ client.properties_count }}</span></a></li>
+                <li><a href="#">Rented properties <span class="pull-right badge bg-aqua">{{ client.rented_properties_count }}</span></a></li>
+                <li><a href="#">Vacant properties <span class="pull-right badge bg-green">{{ client.vacant_properties_count }}</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- /.widget-user -->
+          <a href="#" class="btn btn-link">Financial Report</a>
         </div>
         <!-- /.box-body -->
       </div>
@@ -93,6 +91,8 @@
               <th>Type</th>
               <th>Location</th>
               <th>Registered</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
             <tr *ngFor="let property of client.properties">
               <td>{{ property.id }}</td>
@@ -104,6 +104,12 @@
               <td>{{ property.property_type.name }}</td>
               <td>{{ property.village.name }}</td>
               <td>{{ property.created_at | date }}</td>
+              <td>
+                <a routerLink="/properties/{{ property.id }}/edit">
+                  <div class="fa fa-edit"></div>
+                </a>                
+              </td>
+              <td></td>
             </tr>
           </table>
         </div>

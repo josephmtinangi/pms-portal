@@ -132,7 +132,7 @@ const routes: Routes = [
 
       {
         path: '',
-        component: HomeComponent,
+        component: ClientListComponent,
         canActivate: [DashboardGuard]
       },
     ]
