@@ -40,6 +40,10 @@ export class ClientEditComponent implements OnInit {
     this.getClientTypes();
   }
 
+  update() {
+    
+  }
+
   getClientTypes(){
     this.apiService.getClientTypes().subscribe((data: any) => {
       this.client_types = data.data;

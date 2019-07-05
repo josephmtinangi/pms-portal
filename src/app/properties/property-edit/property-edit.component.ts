@@ -56,6 +56,10 @@ export class PropertyEditComponent implements OnInit {
     this.getProperty();
   }
 
+  update() {
+    
+  }
+
   getPaymentModes() {
     return this.apiService.getPaymentModes().subscribe((res: any) => {
       this.payment_modes = res.data;

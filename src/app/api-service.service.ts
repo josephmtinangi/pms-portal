@@ -26,6 +26,9 @@ export class ApiServiceService {
   API_URL = 'http://localhost:8001/api';
   // testing
   // API_URL = 'https://hidden-island-92023.herokuapp.com/api';
+  // production
+  // WEB_URL = 'http://pms-core.dodomarealestate.co.tz/public';
+  // API_URL = 'http://pms-core.dodomarealestate.co.tz/public/api';
 
   constructor(private httpClient: HttpClient) { }
 
