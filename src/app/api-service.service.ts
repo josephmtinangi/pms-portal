@@ -90,6 +90,11 @@ export class ApiServiceService {
     return this.httpClient.get(this.API_URL + '/payment-modes');
   }
 
+  // Bill types
+  getBillTypes() {
+    return this.httpClient.get(this.API_URL + '/bill-types');
+  }  
+
   // Properties
   getProperties(){
     return this.httpClient.get(this.API_URL + '/properties');
@@ -117,6 +122,10 @@ export class ApiServiceService {
 
   destoryProperty(id: number){
     return this.httpClient.delete(this.API_URL + '/properties/' + id);
+  }
+
+  getPropertyFloor(propertyId: number, floor: number) {
+    return this.httpClient.get(this.API_URL + '/properties/' + propertyId + '/floor/' + floor);
   }
 
   // Rooms

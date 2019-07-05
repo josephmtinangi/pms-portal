@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Customer</h3>
+        <h3 class="box-title">Tenant</h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -46,7 +46,157 @@
       <!-- /.box-body -->
     </div>
   </div>
+  <div class="col-md-6">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Contract</h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body" style="overflow-x: scroll; height: 300px;">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet velit voluptatibus, tempore, odio ut vel eius esse qui debitis animi distinctio quae et sed? Fuga magnam qui illum sit culpa.
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. In praesentium eos deserunt ullam iste voluptates ab explicabo odit, et, iusto sint minima ducimus, hic magnam. Non veritatis vel deserunt ipsum.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda doloribus pariatur numquam modi quasi ratione. Saepe placeat minus soluta, porro hic aperiam assumenda nihil nisi dolorem inventore odio quam.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam, perferendis in accusantium illo sequi, maiores, neque molestiae perspiciatis omnis autem ipsa architecto nam deleniti saepe beatae porro tempora accusamus.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eius sunt natus totam ad excepturi quia autem similique debitis eos libero, commodi eaque esse architecto, sed praesentium atque consequuntur suscipit.
+        </p>
+      </div>
+      <!-- /.box-body -->
+    </div>
+  </div>  
 </div>
+<div *ngIf="customer" class="row">
+  <div class="col-sm-12">
+    <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Rent &amp; Bills</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 10px">#</th>
+                <th>Name/Bills</th>
+                <th>Amount per month (TSH)</th>
+                <th>Start date</th>
+                <th>End date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let schedule of customer.schedules">
+                <td>{{ schedule.id }}</td>
+                <td>
+                  <ul>
+                    <li *ngFor="let control_number of schedule.control_numbers">
+                      {{ control_number.bill_type.name }}
+                    </li>
+                  </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let control_number of schedule.control_numbers">
+                          {{ control_number.amount_to_be_paid | number }}
+                        </li>
+                    </ul>                  
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let control_number of schedule.control_numbers">
+                          {{ control_number.start_date | date }}
+                        </li>
+                    </ul>                  
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let control_number of schedule.control_numbers">
+                          {{ control_number.end_date | date }}
+                        </li>
+                    </ul>                  
+                </td>               
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box --> 
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+          Add Bill
+      </button>
+
+      <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Bill</h4>
+              </div>
+              <div class="modal-body">
+                
+                  <form class="form-horizontal" [formGroup]="billForm" (ngSubmit)="storeBill()">
+                      <div class="box-body">
+                        <input type="hidden" formControlName="customer_id" value="{{ customer.id }}">
+                        <div class="form-group">
+                            <label for="bill_type_id" class="col-sm-2 control-label">Bill</label>
+                            <div class="col-sm-10">
+                              <select class="form-control" formControlName="bill_type_id">
+                                  <option value="" disabled>-Select-</option>
+                                  <option *ngFor="let billType of billTypes" [ngValue]="billType.id">
+                                    {{ billType.name }}
+                                  </option>
+                                </select>                  
+                            </div>
+                        </div>                                               
+                        <div class="form-group">
+                          <label for="amount" class="col-sm-2 control-label">Amount</label>
+                          <div class="col-sm-10">
+                            <input type="text" formControlName="amount" class="form-control" id="amount" placeholder="Amount">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="start_date" class="col-sm-2 control-label">From</label>
+                            <div class="col-sm-10">
+                              <input type="date" formControlName="start_date" class="form-control" id="start_date" placeholder="From">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date" class="col-sm-2 control-label">To</label>
+                            <div class="col-sm-10">
+                              <input type="date" formControlName="end_date" class="form-control" id="end_date" placeholder="To">
+                            </div>
+                        </div>                        
+                      </div>
+                      <!-- /.box-body -->
+                      <div class="box-footer">
+                        <button type="submit" *ngIf="!submitted" class="btn btn-info pull-right">Add</button>
+                        <button type="submit" *ngIf="submitted" class="btn btn-info pull-right"><i class="fa fa-spinner fa-spin"></i> Sending...</button>
+                      </div>
+                      <!-- /.box-footer -->
+                    </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->        
+  </div>
+</div>
+<br>
 <div *ngIf="customer" class="row">
   <div class="col-sm-12">
     <div class="box">

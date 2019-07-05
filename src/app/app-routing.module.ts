@@ -47,6 +47,7 @@ import { WardListComponent } from './wards/ward-list/ward-list.component';
 import { WardCreateComponent } from './wards/ward-create/ward-create.component';
 import { VillageListComponent } from './villages/village-list/village-list.component';
 import { VillageCreateComponent } from './villages/village-create/village-create.component';
+import { PropertyFloorDetailComponent } from './property-floor/property-floor-detail/property-floor-detail.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,8 @@ const routes: Routes = [
       { path: 'clients/:id', component: ClientDetailComponent, canActivate: [DashboardGuard] },
       { path: 'clients/:id/edit', component: ClientEditComponent, canActivate: [DashboardGuard] },
       
+      { path: 'properties/:propertyId/floor/:floor', component: PropertyFloorDetailComponent, canActivate: [DashboardGuard] },
+
       { path: 'properties', component: PropertyListComponent, canActivate: [DashboardGuard] },
       { path: 'properties/create', component: PropertyCreateComponent, canActivate: [DashboardGuard]},
       { path: 'properties/:id', component: PropertyDetailComponent, canActivate: [DashboardGuard] },

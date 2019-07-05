@@ -54,6 +54,7 @@ import { WardListComponent } from './wards/ward-list/ward-list.component';
 import { WardCreateComponent } from './wards/ward-create/ward-create.component';
 import { VillageListComponent } from './villages/village-list/village-list.component';
 import { VillageCreateComponent } from './villages/village-create/village-create.component';
+import { PropertyFloorDetailComponent } from './property-floor/property-floor-detail/property-floor-detail.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { VillageCreateComponent } from './villages/village-create/village-create
     WardListComponent,
     WardCreateComponent,
     VillageListComponent,
-    VillageCreateComponent
+    VillageCreateComponent,
+    PropertyFloorDetailComponent
   ],
   imports: [
     BrowserModule,

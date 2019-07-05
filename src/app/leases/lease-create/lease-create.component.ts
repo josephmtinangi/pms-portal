@@ -73,17 +73,9 @@ export class LeaseCreateComponent implements OnInit {
     }
 
     this.apiService.storeLease(this.leaseForm.value).subscribe((res: any) => {
-      console.log('lease res ');
-      console.log(res);
       this.success = true;
       this.submitted = false;
       this.leaseForm.reset();
-
-      console.log('generate cn')
-      this.apiService.generateControlNumber({customer_contract_id: res.data.id}).subscribe((res: any) => {
-        console.log('done generating')
-        console.log(res);
-      });
     },
     error => {
       this.success = false;

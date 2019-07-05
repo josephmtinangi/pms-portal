@@ -56,20 +56,22 @@
         <div class="box-body">
           <table *ngIf="property.rooms.length > 0" class="table table-bordered">
             <tr>
-              <th style="width: 10px">#</th>
+              <th>Floor</th>
               <th>Number</th>
               <th>Size</th>
-              <th>Floor</th>
               <th>Price per SQM</th>
               <th>Status</th>
+              <th>View</th>
             </tr>
             <tr *ngFor="let room of property.rooms">
-              <td>{{ room.id }}</td>
+              <td>Floor No. {{ room.floor }}</td>
               <td>{{ room.number }}</td>
               <td>{{ room.size }} {{ room.metrics }}</td>
-              <td>{{ room.floor }}</td>
               <td>{{ room.price_per_sqm | currency:'TZS' }}</td>
               <td>{{ room.status }}</td>
+              <td>
+                <a routerLink="/properties/{{ property.id }}/floor/{{ room.floor }}"><i class="fa fa-eye"></i></a>
+              </td>
             </tr>
           </table>
         </div>

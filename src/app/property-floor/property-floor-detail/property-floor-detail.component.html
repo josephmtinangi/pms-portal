@@ -1,0 +1,62 @@
+<div *ngIf="floor" class="row">
+  <div class="col-md-6">
+      <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Floor No. {{ floor.number }}</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <td>Size</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Status</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->   
+  </div>
+</div>
+<div *ngIf="floor" class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Tenants</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table *ngIf="floor.contracts.length > 0" class="table table-bordered">
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Name</th>
+              <th>Room(s)</th>
+              <th>View</th>
+            </tr>
+            <tr *ngFor="let contract of floor.contracts">
+              <td>{{ contract.id }}</td>
+              <td>{{ contract.customer.first_name }} {{ contract.customer.middle_name }} {{ contract.customer.last_name }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let room of contract.rooms">
+                    {{ room.room.number }} - {{ room.room.size }} {{ room.room.metrics }}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <a routerLink="/customers/{{ contract.customer.id }}"><i class="fa fa-eye"></i></a>
+              </td>
+            </tr>
+          </table>          
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box --> 
+    </div>
+</div>
