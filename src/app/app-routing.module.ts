@@ -133,6 +133,8 @@ const routes: Routes = [
       { path: 'customer-types', component: CustomerTypeListComponent, canActivate: [DashboardGuard] },
       { path: 'customer-types/create', component: CustomerTypeCreateComponent, canActivate: [DashboardGuard] },
 
+      { path: 'dashboard', component: HomeComponent, canActivate: [DashboardGuard] },
+
       {
         path: '',
         component: ClientListComponent,

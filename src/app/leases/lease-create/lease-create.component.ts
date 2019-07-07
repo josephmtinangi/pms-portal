@@ -58,7 +58,6 @@ export class LeaseCreateComponent implements OnInit {
   }  
 
   store(){
-    console.log('submitted');
 
     const selectedRoomIds = this.leaseForm.value.rooms
       .map((v, i) => v ? this.rooms[i].id : null)

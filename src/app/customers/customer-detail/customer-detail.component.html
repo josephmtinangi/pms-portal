@@ -86,9 +86,12 @@
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Name/Bills</th>
-                <th>Amount per month (TSH)</th>
+                <th>Amount (TSH)</th>
+                <th>Control number</th>
                 <th>Start date</th>
                 <th>End date</th>
+                <th>Expiry Date</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -109,6 +112,13 @@
                     </ul>                  
                 </td>
                 <td>
+                  <ul>
+                    <li *ngFor="let control_number of schedule.control_numbers">
+                      {{ control_number.control_number }}
+                    </li>
+                  </ul>
+                </td>
+                <td>
                     <ul>
                         <li *ngFor="let control_number of schedule.control_numbers">
                           {{ control_number.start_date | date }}
@@ -121,7 +131,22 @@
                           {{ control_number.end_date | date }}
                         </li>
                     </ul>                  
-                </td>               
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let control_number of schedule.control_numbers">
+                          {{ control_number.expiry_date | date }}
+                        </li>
+                    </ul>                  
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let control_number of schedule.control_numbers">
+                          <strong class="text-success" *ngIf="control_number.paid_at">PAID</strong>
+                          <strong class="text-danger" *ngIf="!control_number.paid_at">NOT PAID</strong>
+                        </li>
+                    </ul>                  
+                </td>              
               </tr>
             </tbody>
           </table>
@@ -142,7 +167,8 @@
                 <h4 class="modal-title">Add Bill</h4>
               </div>
               <div class="modal-body">
-                
+                  <div class="alert alert-success" *ngIf="message">{{ message }}</div>
+                  <div class="alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
                   <form class="form-horizontal" [formGroup]="billForm" (ngSubmit)="storeBill()">
                       <div class="box-body">
                         <input type="hidden" formControlName="customer_id" value="{{ customer.id }}">
@@ -213,14 +239,14 @@
               <th>Rent per month (TSH)</th>
               <th>Payment Interval (months)</th>
               <th>Duration (months)</th>
-              <th>Entered</th>
-              <th>Options</th>
+              <th>Date Entered</th>
+              <th>View</th>
             </tr>
             <tr *ngFor="let contract of customer.customer_contracts">
               <td>{{ contract.id }}</td>
               <td>{{ contract.start_date | date }}</td>
               <td>{{ contract.end_date | date }}</td>
-              <td>{{ contract.rent_per_month | currency:'TZS' }}</td>
+              <td class="text-right">{{ contract.rent_per_month | number }}</td>
               <td>{{ contract.payment_interval }}</td>
               <td>{{ contract.contract_duration }}</td>
               <td>{{ contract.created_at | date }}</td>

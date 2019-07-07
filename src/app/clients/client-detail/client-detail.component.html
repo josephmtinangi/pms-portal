@@ -91,19 +91,23 @@
               <th>Type</th>
               <th>Location</th>
               <th>Registered</th>
+              <th>View</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
             <tr *ngFor="let property of client.properties">
               <td>{{ property.id }}</td>
               <td>
-                <a routerLink="/properties/{{ property.id }}">
-                    {{ property.name }}
-                </a>
+                  {{ property.name }}
               </td>
               <td>{{ property.property_type.name }}</td>
               <td>{{ property.village.name }}</td>
               <td>{{ property.created_at | date }}</td>
+              <td>
+                  <a routerLink="/properties/{{ property.id }}">
+                  <i class="fa fa-eye"></i>
+                </a>                
+              </td>
               <td>
                 <a routerLink="/properties/{{ property.id }}/edit">
                   <div class="fa fa-edit"></div>
@@ -115,6 +119,7 @@
         </div>
         <!-- /.box-body -->
       </div>
-      <!-- /.box -->   
+      <!-- /.box -->  
+      <a routerLink="/properties/create" class="btn btn-primary">Add Property</a> 
     </div>
   </div>

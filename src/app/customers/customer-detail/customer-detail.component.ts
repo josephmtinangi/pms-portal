@@ -16,7 +16,8 @@ export class CustomerDetailComponent implements OnInit {
   billTypes: Array<BillType> = [];
   submitted: boolean = false;
   success: boolean = false;
-  errorMessage: string = null;  
+  errorMessage: string = null;
+  message: string = null;  
   customer: Customer;
 
   constructor(
@@ -47,11 +48,10 @@ export class CustomerDetailComponent implements OnInit {
     }
 
     this.apiService.generateControlNumber(this.billForm.value).subscribe((res: any) => {
-      if(res.status == 200){
-        this.success = true;
-        this.submitted = false;
-        this.billForm.reset();
-      }
+      this.success = true;
+      this.submitted = false;
+      this.billForm.reset();
+      this.message = 'Success';
     },
     error => {
       this.success = false;
@@ -64,6 +64,14 @@ export class CustomerDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.apiService.getCustomer(id).subscribe((res: any) => {
       this.customer = res.data;
+
+      this.billForm.setValue({
+        customer_id: this.customer.id,
+        amount: [''],
+        bill_type_id: [''],
+        start_date: [''],
+        end_date: ['']        
+      })
     });
   }
 

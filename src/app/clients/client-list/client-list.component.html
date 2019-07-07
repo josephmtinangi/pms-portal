@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
+    <div class="alert alert-info" *ngIf="messaage">{{ messaage }}</div>
     <div class="box">
       <div class="box-header with-border">
         <h3 class="box-title">Clients</h3>
@@ -19,7 +20,6 @@
             <th>Postal Address</th>
             <th>View</th>
             <th>Edit</th>
-            <th>Delete</th>
           </tr>
           <tr *ngFor="let client of clients">
             <td>{{ client.id }}</td>
@@ -36,9 +36,6 @@
             </td>
             <td>
               <a routerLink="/clients/{{ client.id }}/edit"><div class="fa fa-edit"></div></a>
-            </td>
-            <td>
-              
             </td>
           </tr>
         </table>

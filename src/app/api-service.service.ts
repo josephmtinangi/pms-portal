@@ -73,7 +73,7 @@ export class ApiServiceService {
   }
 
   destroyClient(id: number) {
-    return this.httpClient.delete(this.API_URL + '/clients');
+    return this.httpClient.delete(this.API_URL + '/clients/' + id);
   }
 
   // Property types
